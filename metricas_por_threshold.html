@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Metricas por Threshold</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg-1: #0f172a;
+            --bg-2: #1e293b;
+            --bg-3: #0b1324;
+            --card: #111827;
+            --card-2: #0b1a2c;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --accent: #ffb703;
+            --accent-2: #21c1b3;
+            --accent-3: #e85d75;
+            --line: rgba(148, 163, 184, 0.25);
+            --shadow: 0 24px 60px rgba(15, 23, 42, 0.45);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at top left, #1f2b58, transparent 55%),
+                radial-gradient(circle at 20% 40%, #09203f, transparent 50%),
+                radial-gradient(circle at 80% 10%, #371c2b, transparent 40%),
+                linear-gradient(160deg, var(--bg-1), var(--bg-2));
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px 72px;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .title {
+            font-family: "Fraunces", "Space Grotesk", serif;
+            font-size: clamp(2rem, 4vw, 3.1rem);
+            line-height: 1.05;
+            margin: 0 0 12px;
+        }
+
+        .subtitle {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .hero-card {
+            background: linear-gradient(145deg, #14213d, #0b1f3a);
+            padding: 22px 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .card h3 {
+            margin: 0 0 14px;
+            font-size: 1.1rem;
+        }
+
+        .stat {
+            font-size: 2.1rem;
+            font-weight: 700;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .chart {
+            width: 100%;
+            overflow: hidden;
+            background: var(--card-2);
+            border-radius: var(--radius);
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .legend i {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+        }
+
+        th {
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        tr.highlight {
+            background: rgba(255, 183, 3, 0.12);
+        }
+
+        .status {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .file-input {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .file-input input[type="file"] {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            border-radius: 12px;
+            color: var(--text);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .footer {
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 720px) {
+            .page {
+                padding: 32px 16px 56px;
+            }
+
+            th,
+            td {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header>
+            <div>
+                <h1 class="title">Metricas por threshold</h1>
+                <p class="subtitle">
+                    Visualizacao gerada a partir de metricas_por_threshold.csv.
+                </p>
+            </div>
+            <div class="hero-card">
+                <div class="badges">
+                    <span class="badge">CSV carregado localmente</span>
+                    <span class="badge">Linha destacada por melhor F1</span>
+                    <span class="badge">Graficos interativos</span>
+                </div>
+                <div class="status" id="status">Carregando...</div>
+            </div>
+        </header>
+
+        <section class="grid grid-2">
+            <div class="card">
+                <h3>Melhor threshold</h3>
+                <div class="stat" id="best-threshold">--</div>
+                <div class="muted" id="best-metric">--</div>
+            </div>
+            <div class="card">
+                <h3>Linhas analisadas</h3>
+                <div class="stat" id="total-rows">--</div>
+                <div class="muted">Total de thresholds avaliados</div>
+            </div>
+        </section>
+
+        <section class="grid" style="margin-top: 24px;">
+            <div class="chart" id="chart-accuracy"></div>
+            <div class="chart" id="chart-verdadeiro"></div>
+            <div class="chart" id="chart-falso"></div>
+        </section>
+
+        <section class="card" style="margin-top: 24px;">
+            <h3>Tabela completa</h3>
+            <div id="table-container"></div>
+        </section>
+
+        <section class="card hidden" id="fallback" style="margin-top: 24px;">
+            <h3>Carregar CSV manualmente</h3>
+            <p class="muted">
+                Nao foi possivel acessar o CSV automaticamente. Selecione o arquivo.
+            </p>
+            <div class="file-input">
+                <input id="csvFile" type="file" accept=".csv,text/csv" />
+            </div>
+        </section>
+
+        <div class="footer">
+            Dica: se abrir este HTML via file:// e o CSV nao carregar, use o
+            seletor acima ou execute um servidor local.
+        </div>
+    </div>
+
+    <script>
+        const CSV_PATH = "metricas_por_threshold.csv";
+        const BEST_METRIC = "f1_verdadeiro";
+
+        const statusEl = document.getElementById("status");
+        const fallbackEl = document.getElementById("fallback");
+        const fileInput = document.getElementById("csvFile");
+
+        const bestThresholdEl = document.getElementById("best-threshold");
+        const bestMetricEl = document.getElementById("best-metric");
+        const totalRowsEl = document.getElementById("total-rows");
+
+        function parseNumber(value) {
+            if (value === null || value === undefined) return null;
+            const text = String(value).trim();
+            if (!text) return null;
+            const normalized = text.replace(",", ".");
+            const num = Number(normalized);
+            if (Number.isFinite(num)) return num;
+            return text;
+        }
+
+        function formatNumber(value) {
+            if (typeof value !== "number") return value;
+            if (Number.isInteger(value)) return String(value);
+            return value.toFixed(4).replace(".", ",");
+        }
+
+        function parseCsv(text) {
+            const lines = text.split(/\r?\n/).filter((line) => line.trim());
+            if (!lines.length) return { headers: [], rows: [] };
+            const headers = lines[0].split(";").map((h) => h.trim());
+            const rows = lines.slice(1).map((line) => {
+                const cols = line.split(";");
+                const row = {};
+                headers.forEach((header, idx) => {
+                    row[header] = cols[idx] !== undefined ? cols[idx].trim() : "";
+                });
+                return row;
+            });
+
+            const numericFields = [
+                "threshold",
+                "accuracy",
+                "precision_verdadeiro",
+                "recall_verdadeiro",
+                "f1_verdadeiro",
+                "precision_falso",
+                "recall_falso",
+                "f1_falso",
+                "qtd_linhas_usadas",
+            ].filter((field) => headers.includes(field));
+
+            rows.forEach((row) => {
+                numericFields.forEach((field) => {
+                    row[field] = parseNumber(row[field]);
+                });
+            });
+
+            return { headers, rows };
+        }
+
+        function buildLinePath(points) {
+            if (!points.length) return "";
+            return points
+                .map((point, idx) => `${idx === 0 ? "M" : "L"}${point[0]},${point[1]}`)
+                .join(" ");
+        }
+
+        function renderChart(container, data, series, title) {
+            const width = 920;
+            const height = 260;
+            const padding = 40;
+            const xValues = data.map((row) => row.threshold);
+            const minX = Math.min(...xValues);
+            const maxX = Math.max(...xValues);
+            const yMin = 0;
+            const yMax = 1;
+
+            const mapX = (value) =>
+                padding + ((value - minX) / (maxX - minX || 1)) * (width - padding * 2);
+            const mapY = (value) =>
+                height - padding - ((value - yMin) / (yMax - yMin)) * (height - padding * 2);
+
+            const gridLines = 5;
+            const grid = [];
+            for (let i = 0; i <= gridLines; i += 1) {
+                const y = padding + (i / gridLines) * (height - padding * 2);
+                grid.push(
+                    `<line x1="${padding}" y1="${y}" x2="${width - padding}" y2="${y}" stroke="rgba(148,163,184,0.2)" />`
+                );
+            }
+
+            const paths = series
+                .map((item) => {
+                    const points = data.map((row) => [
+                        mapX(row.threshold),
+                        mapY(row[item.key]),
+                    ]);
+                    const path = buildLinePath(points);
+                    return `
+              <path d="${path}" fill="none" stroke="${item.color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="600" stroke-dashoffset="600" style="animation: dash 1.4s ease forwards" />
+              ${points
+                            .map(
+                                (point) =>
+                                    `<circle cx="${point[0]}" cy="${point[1]}" r="3.6" fill="${item.color}" />`
+                            )
+                            .join("")}
+            `;
+                })
+                .join("");
+
+            const labels = `
+          <text x="${padding}" y="20" fill="#e2e8f0" font-size="14" font-weight="600">${title}</text>
+          <text x="${padding}" y="${height - 10}" fill="#94a3b8" font-size="12">Threshold ${minX.toFixed(1)} - ${maxX.toFixed(1)}</text>
+        `;
+
+            container.innerHTML = `
+          <svg viewBox="0 0 ${width} ${height}" aria-label="${title}">
+            ${grid.join("")}
+            ${paths}
+            ${labels}
+          </svg>
+          <div class="legend">
+            ${series
+                    .map(
+                        (item) =>
+                            `<span><i style="background:${item.color}"></i>${item.label}</span>`
+                    )
+                    .join("")}
+          </div>
+        `;
+        }
+
+        function renderTable(headers, rows, bestRow) {
+            const table = document.createElement("table");
+            const thead = document.createElement("thead");
+            const headerRow = document.createElement("tr");
+
+            headers.forEach((header) => {
+                const th = document.createElement("th");
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement("tbody");
+            rows.forEach((row) => {
+                const tr = document.createElement("tr");
+                if (row === bestRow) tr.classList.add("highlight");
+
+                headers.forEach((header) => {
+                    const td = document.createElement("td");
+                    td.textContent = formatNumber(row[header]);
+                    tr.appendChild(td);
+                });
+
+                tbody.appendChild(tr);
+            });
+
+            table.appendChild(tbody);
+            return table;
+        }
+
+        function renderDashboard({ headers, rows }) {
+            if (!rows.length) {
+                statusEl.textContent = "CSV sem dados.";
+                return;
+            }
+
+            const sortedRows = [...rows].sort((a, b) => a.threshold - b.threshold);
+            const bestRow = sortedRows.reduce((acc, row) =>
+                row[BEST_METRIC] > acc[BEST_METRIC] ? row : acc
+            );
+
+            bestThresholdEl.textContent = formatNumber(bestRow.threshold);
+            bestMetricEl.textContent = `${BEST_METRIC}: ${formatNumber(bestRow[BEST_METRIC])}`;
+            totalRowsEl.textContent = sortedRows.length;
+
+            const accuracyChart = document.getElementById("chart-accuracy");
+            renderChart(accuracyChart, sortedRows, [
+                { key: "accuracy", label: "accuracy", color: "#ffb703" },
+            ], "Accuracy por threshold");
+
+            const verdadeiroChart = document.getElementById("chart-verdadeiro");
+            renderChart(verdadeiroChart, sortedRows, [
+                { key: "precision_verdadeiro", label: "precision verdadeiro", color: "#21c1b3" },
+                { key: "recall_verdadeiro", label: "recall verdadeiro", color: "#e85d75" },
+                { key: "f1_verdadeiro", label: "f1 verdadeiro", color: "#8b5cf6" },
+            ], "Metricas verdadeiro");
+
+            const falsoChart = document.getElementById("chart-falso");
+            renderChart(falsoChart, sortedRows, [
+                { key: "precision_falso", label: "precision falso", color: "#38bdf8" },
+                { key: "recall_falso", label: "recall falso", color: "#f97316" },
+                { key: "f1_falso", label: "f1 falso", color: "#facc15" },
+            ], "Metricas falso");
+
+            const tableContainer = document.getElementById("table-container");
+            tableContainer.innerHTML = "";
+            tableContainer.appendChild(renderTable(headers, sortedRows, bestRow));
+
+            statusEl.textContent = "CSV carregado com sucesso.";
+        }
+
+        function loadCsvText(text) {
+            const data = parseCsv(text);
+            renderDashboard(data);
+        }
+
+        function loadFromFetch() {
+            fetch(CSV_PATH)
+                .then((response) => {
+                    if (!response.ok) throw new Error("fetch failed");
+                    return response.text();
+                })
+                .then(loadCsvText)
+                .catch(() => {
+                    fallbackEl.classList.remove("hidden");
+                    statusEl.textContent =
+                        "Nao foi possivel carregar o CSV automaticamente.";
+                });
+        }
+
+        if (fileInput) {
+            fileInput.addEventListener("change", (event) => {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = () => loadCsvText(reader.result);
+                reader.readAsText(file);
+            });
+        }
+
+        loadFromFetch();
+    </script>
+</body>
+
+</html>

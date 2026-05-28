@@ -1,0 +1,63 @@
+# Ambiente virtual Python
+venv/
+.venv/
+env/
+ENV/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Arquivos de ambiente
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Arquivos gerados pelo avaliador
+metricas_por_pergunta.csv
+resultado_metricas.csv
+*_metricas.csv
+*_resultado.csv
+
+# CSVs temporários ou de teste
+*.tmp.csv
+*.backup.csv
+
+# Modelos/cache do Hugging Face e sentence-transformers
+.cache/
+huggingface/
+models/
+checkpoints/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code / IDEs
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Build/package Python
+build/
+dist/
+*.egg-info/
+
+# Banco local
+*.sqlite3
+db.sqlite3
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.swp
