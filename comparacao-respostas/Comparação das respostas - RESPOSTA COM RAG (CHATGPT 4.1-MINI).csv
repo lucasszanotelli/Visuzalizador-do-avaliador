@@ -1,0 +1,641 @@
+Pergunta,Resposta FAQ,Resposta com RAG,semantic_score,lexical_score,final_score,classificacao,"FS 0,5","FS 0,6","FS 0,7","FS 0,8","FS 0,9",label_manual,Threshold,RESUMO FINAL Média final: 0.6139,,
+O que é o Cadastro Ambiental Rural – CAR e qual é a sua finalidade?,"O Cadastro Ambiental Rural – CAR é um registro público eletrônico nacional, obrigatório para todos os imóveis rurais, com a finalidade de integrar as informações ambientais das propriedades e posses rurais, compondo base de dados para controle, monitoramento, planejamento ambiental e econômico e combate ao desmatamento. Foi criado pela Lei 12.651/2012, art. 29.","Olá! 😊 Vamos à sua pergunta sobre o Cadastro Ambiental Rural (CAR):
+
+Cadastro Ambiental Rural – CAR é um registro eletrônico, de abrangência nacional e obrigatório para todos os imóveis rurais. Ele é realizado junto ao órgão ambiental competente e faz parte do Sistema Nacional de Informação sobre Meio Ambiente (SINIMA).
+
+Finalidade do CAR:
+
+Integrar as informações ambientais das propriedades e posses rurais;
+Compor uma base de dados para:
+Controle ambiental;
+Monitoramento ambiental;
+Planejamento ambiental e econômico;
+Combate ao desmatamento.
+Essa definição está baseada no Art. 2º e no item 4.1 do documento, que ressaltam que o CAR é essencial para a gestão ambiental das áreas rurais no Brasil.
+
+Se precisar de mais detalhes, estou à disposição! 🌱📋","0,8613","0,3016","0,7494",aceitável,1,1,1,0,0,1,"0,5","Excelente: ≥ 0.85
+
+Aceitável: 0.70 – 0.84
+
+Fraco: 0.50 – 0.69
+
+Ruim: < 0.50    ",,"0
+
+15
+
+12
+
+5"
+O que é o Sistema de Cadastro Ambiental Rural - SICAR?,"O Sistema de Cadastro Ambiental Rural – SICAR é o responsável por emitir o Recibo de Inscrição do imóvel rural no CAR, confirmando a efetivação do cadastramento e o envio da documentação exigida para a análise da localização da área de Reserva Legal. Definido como Sistema eletrônico de âmbito nacional destinado ao gerenciamento de informações ambientais dos imóveis rurais de todo o País. Essas informações destinam-se a subsidiar políticas, programas, projetos e atividades de controle, monitoramento, planejamento ambiental e econômico e combate ao desmatamento.
+
+Foi criado por meio do Decreto n° 7.830/2012, art. 3º, com os seguintes objetivos:
+
+receber, gerenciar e integrar os dados do CAR de todos os entes federativos
+cadastrar e controlar as informações dos imóveis rurais, referentes a seu perímetro e localização, aos remanescentes de vegetação nativa, às áreas de interesse social, às áreas de utilidade pública, às Áreas de Preservação Permanente, às Áreas de Uso Restrito, às áreas consolidadas e às Reservas Legais;
+monitorar a manutenção, a recomposição, a regeneração, a compensação e a supressão da vegetação nativa e da cobertura vegetal nas áreas de Preservação Permanente, de Uso Restrito, e de Reserva Legal, no interior dos imóveis rurais;
+promover o planejamento ambiental e econômico do uso do solo e conservação ambiental no território nacional; e
+disponibilizar informações de natureza pública sobre a regularização ambiental dos imóveis rurais em território nacional, na Internet.
+
+","O Sistema de Cadastro Ambiental Rural - SICAR é um sistema eletrônico de âmbito nacional destinado ao gerenciamento de informações ambientais dos imóveis rurais.
+
+Segundo o Decreto nº 7.830, de 17 de outubro de 2012:
+
+O SICAR tem como objetivos principais:
+Receber, gerenciar e integrar os dados do Cadastro Ambiental Rural (CAR) de todos os entes federativos.
+Cadastrar e controlar as informações dos imóveis rurais, incluindo perímetro, localização, remanescentes de vegetação nativa, áreas de interesse social, áreas de utilidade pública, Áreas de Preservação Permanente, Áreas de Uso Restrito, áreas consolidadas e Reservas Legais.
+Monitorar a manutenção, recomposição, regeneração, compensação e supressão da vegetação nativa e cobertura vegetal nas áreas mencionadas.
+Promover o planejamento ambiental e econômico do uso do solo e conservação ambiental no território nacional.
+Disponibilizar informações públicas sobre a regularização ambiental dos imóveis rurais na internet.
+Além disso, o SICAR disponibiliza instrumentos para o cadastramento dos imóveis rurais pelos proprietários ou possuidores rurais e integra bases de dados dos entes federados.
+
+📌 Em resumo, o SICAR é a plataforma oficial que gerencia e integra as informações ambientais dos imóveis rurais em todo o Brasil, apoiando o controle, monitoramento e planejamento ambiental.","0,9265","0,4448","0,8302",aceitável,1,1,1,1,0,1,"0,5",,,
+Quais são as situações em que os filtros automáticos do que Sistema de Cadastro Ambiental Rural – SICAR não permite finalização da inscrição do imóvel rural no CAR?,"O SICAR dispõe de filtros automáticos para recebimento dos cadastros e finalização do preenchimento do Módulo de Cadastro, que tem como objetivo estabelecer critérios mínimos para elaboração do cadastro e inscrição no CAR, sendo eles:
+
+Limite Brasil: Tolerância de até 1 km de distância do imóvel em relação aos limites do Brasil, conforme base do IBGE;
+Limites de Estados: A inscrição deve ser feita no estado que contenha mais de 50% da área do imóvel em hectares, segundo base de limites estaduais do IBGE;
+Limites de município: O município que imóvel for declarado deve conter ao menos parte do perímetro do imóvel;
+Imóvel sobreposto acima de 30% em Imóvel Rural já declarado com mesmos CPFs/CNPJs: Caso o cadastro seja declarado e já exista um imóvel na base do SICAR com as mesmas pessoas físicas ou jurídicas e a sobreposição seja igual ou maior à 30%, será considerado como tentativa de cadastro do mesmo imóvel, o que não é permitido pelo SICAR;
+Divergência entre área do imóvel rural vetorizada e declarada em documento:
+Para Imóveis rurais até 4 módulos fiscais:
+Não é gerado o arquivo “.car” se a vetorização for divergente 100% da área declarada em documento. Para isso o sistema faz duas checagens:
+
+Não gera “.car” se a vetorização é maior ou igual ao dobro da área declarada. Ex: Área total em Documento = 50ha e Vetorização = 100ha
+Não gera “.car” se a declaração em documento maior ou igual ao dobro da área vetorizada. Ex: Área total em Documento = 100ha e Vetorização = 50ha
+Para Imóveis rurais acima de 4 módulos fiscais:
+Não é gerado “.car” se a vetorização for divergente 50% da área declarada em documento. Para isso o sistema faz duas checagens:
+
+Não gera o arquivo “.car” se a vetorização for maior ou igual 1,5 vezes que a área declarada. Ex: Área total em Documento = 100ha e Vetorização = 150ha
+Não gera “.car” se a declaração for maior ou igual 1,5 vezes maior que a área vetorizada. Ex: Área total em Documento = 150ha e Vetorização = 100ha
+Envio para o SICAR nacional de “.car” gerado em Módulo de Cadastro do SICAR com receptor estadual: Não é permitido que o cadastro efetuado em Módulo de Cadastro do SICAR com receptor estadual seja enviado por meio da página do SICAR nacional (https://car.gov.br), neste caso o envio do “.car” deve ser feito no sítio eletrônico do SICAR estadual.","Olá! Sobre sua pergunta, os filtros automáticos do Sistema de Cadastro Ambiental Rural – SICAR não permitem a finalização da inscrição do imóvel rural no CAR nas seguintes situações:
+
+Situações em que a inscrição não pode ser finalizada:
+
+Sobreposição de perímetro de um imóvel com o perímetro de outro imóvel rural;
+Declaração incorreta das informações, conforme previsto no art. 7º do Decreto nº 7.830/2012;
+Pendências não cumpridas nos prazos determinados após notificações;
+Informações falsas, enganosas ou omissas, total ou parcialmente, conforme o § 1º do art. 6º do Decreto nº 7.830/2012;
+Decisão judicial ou administrativa do órgão competente que justifique o cancelamento;
+Duplicidade de cadastro para o mesmo imóvel;
+Cadastramento em desacordo com o conceito de imóvel rural;
+Imóveis transformados em urbanos, com registro cartorial do imóvel.
+Essas restrições garantem a integridade e a confiabilidade dos dados do CAR, evitando inconsistências no sistema federal.
+
+Se precisar de mais detalhes ou tiver outra dúvida sobre o CAR, estou à disposição! 🌱📋","0,8239","0,0193","0,663",fraco,1,1,0,0,0,0,"0,5",,,
+Quais são os casos em que os filtros automáticos do Sistema de Cadastro Ambiental Rural – SICAR alteram a situação do imóvel para pendente?,"O SICAR dispõe de filtros automáticos que tem como objetivo verificar a existência de pendências relativas à sobreposição de imóveis rurais com unidades de conservação, terras indígenas e áreas embargadas pelo IBAMA. Caso o imóvel rural inscrito no CAR apresente um ou mais casos ele terá sua situação alterada para “Pendente”, conforme as regras abaixo:
+
+Terras Indígenas: O imóvel rural ficará “Pendente” caso esteja totalmente ou parcialmente sobreposto com Terras Indígenas homologadas constates na base de dados da FUNAI.
+Unidades de Conservação: O imóvel rural ficará “Pendente” caso esteja totalmente ou parcialmente sobreposto com Unidades de Conservação dos tipos Reserva de Fauna (Reserva de Fauna), REBIO (Reserva Biológica), PARNA (Parque Nacional) e ESEC (Estação Ecológica) constantes na base de dados do CNUC (Cadastro Nacional de Unidades de Conservação), conforme as seguintes regras de tolerância:
+10% para Imóveis rurais pequenos (até 4 módulos fiscais);
+5% para Imóveis rurais médios (maiores que 4 até 15 módulos fiscais);
+3% para Imóveis rurais grandes (maiores que 15 módulos fiscais)
+Áreas embargadas pelos órgãos competentes: O imóvel rural ficará “Pendente” caso esteja totalmente ou parcialmente sobreposto com áreas embargadas constantes no sistema de áreas embargadas do IBAMA.
+A consulta em relação às sobreposições e a situação da inscrição do imóvel rural no CAR podem ser obtidos no Demonstrativo da Situação do CAR, obtido por meio da consulta pública disponível em https://car.gov.br, utilizando-se do número do recibo ou do protocolo de inscrição, ou na Central do Proprietário/possuidor. Caso o imóvel esteja pendente por conta de uma ou mais sobreposições ele poderá proceder, na Central do Proprietário/possuidor, com a retificação ou envio de documentação conforme o caso.","Olá! Sobre a sua pergunta, os filtros automáticos do Sistema de Cadastro Ambiental Rural – SICAR alteram a situação do imóvel para pendente nos seguintes casos:
+
+Sobreposição do cadastro do imóvel rural no CAR com outros imóveis rurais;
+Pendências relacionadas a remembramentos, fracionamentos e alterações de natureza dominial ou possessória;
+Pendências decorrentes de alterações da situação do cadastro do imóvel rural no CAR;
+Alterações de natureza ambiental, como impactos sobre as áreas declaradas, incluindo supressão e exploração de florestas e demais formas de vegetação nativa;
+Questões relacionadas à evolução e estágio de cumprimento dos termos de compromisso e do Programa de Regularização Ambiental (PRA).
+Esses pontos estão relacionados à necessidade de retificação, complementação ou comprovação das informações declaradas, conforme demanda do órgão competente.
+
+Se precisar de mais detalhes, estou à disposição! 🌱📋","0,8739","0,0493","0,709",aceitável,1,1,1,0,0,0,"0,5",,,
+Qual é o prazo para inscrição do imóvel rural no CAR?,"Segundo o Decreto 9.395, de 30 de maio de 2018, a inscrição no CAR e o requerimento de adesão ao Programa de Regularização Ambiental - PRA, nos casos em que houver a necessidade de regularizar áreas consolidadas em Áreas de Preservação Permanente, Reserva Legal e áreas de uso restrito, deverão ser feitos até 31 de dezembro de 2018 sendo que, após essa data, as instituições financeiras só concederão crédito agrícola, em qualquer de suas modalidades, para proprietários de imóveis rurais que estejam inscritos no CAR.","Olá! Sobre o prazo para inscrição do imóvel rural no Cadastro Ambiental Rural (CAR), conforme o documento fornecido, temos as seguintes informações principais:
+
+A inscrição no CAR deve ser requerida no prazo de 1 (um) ano contado da implantação do CAR, preferencialmente junto ao órgão ambiental municipal ou estadual competente.
+Esse prazo pode ser prorrogado uma única vez, por igual período, por ato do Chefe do Poder Executivo.
+A inscrição é obrigatória para todas as propriedades e posses rurais.
+Em algumas atualizações legais, esse prazo foi especificado ou ajustado, mas a regra geral vigente é o prazo de 1 ano, prorrogável por mais 1 ano.
+Resumo do prazo para inscrição no CAR:
+
+Prazo para inscrição	Observação
+1 (um) ano	Contado da implantação do CAR, preferencialmente no órgão ambiental municipal ou estadual
+Prorrogação	Uma única vez, por igual período (mais 1 ano), por ato do Chefe do Poder Executivo
+📌 Além disso, o documento destaca que a inscrição no CAR é condição obrigatória para adesão ao Programa de Regularização Ambiental (PRA), que deve ser requerida dentro dos prazos legais.
+
+Se precisar de mais detalhes ou esclarecer outras dúvidas sobre o CAR, estou à disposição! 😊","0,7437","0,0139","0,5977",fraco,1,0,0,0,0,1,"0,5",,,
+Como fazer a inscrição do imóvel rural no CAR?,"A inscrição no CAR é realizada por meio de sistema eletrônico e deverá ser feita junto ao órgão estadual competente, na Unidade da Federação (UF) em que se localiza o imóvel rural. Estados e Distrito Federal disponibilizam, na internet, endereço eletrônico para interface de programa junto ao SICAR, destinado à inscrição, à consulta e ao acompanhamento da situação da regularização ambiental dos imóveis rurais. Esses endereços podem ser acessados por meio do SICAR, no link https://car.gov.br/#/contatos.
+
+","Olá! Vamos ao procedimento para inscrição do imóvel rural no CAR conforme o documento fornecido:
+
+Passos para a inscrição do imóvel rural no CAR:
+
+Realização da inscrição via sistema eletrônico:
+
+A inscrição deve ser feita exclusivamente por meio eletrônico no Sistema de Cadastro Ambiental Rural (SICAR), que no Estado integra o Sistema Integrado de Monitoramento e Licenciamento Ambiental (SIMLAM).
+O link para acesso está disponível no site oficial do Idaf.
+Informações necessárias para inscrição:
+
+Dados cadastrais do proprietário, do responsável técnico (se houver) e do imóvel rural.
+Projeto geográfico para geração do croqui georreferenciado, contendo:
+Área total da propriedade.
+Área por matrícula ou posse.
+Perímetro do imóvel com indicação das coordenadas geográficas (pelo menos um ponto de amarração).
+Localização dos remanescentes de vegetação nativa, Áreas de Preservação Permanente (APP), áreas de uso restrito, áreas consolidadas e Reserva Legal.
+Documentação complementar:
+
+Comprovação da propriedade ou posse rural.
+Para pequenas propriedades ou posses rurais familiares (até 4 módulos fiscais), pode haver procedimento simplificado, com croqui simplificado.
+Caso haja desmembramento, fracionamento, agrupamento ou remembramento do imóvel, deve-se atualizar ou realizar nova inscrição conforme o caso.
+Emissão da Solicitação de Inscrição:
+
+Após inclusão dos dados no SIMLAM, será emitido o documento denominado “Solicitação de Inscrição no Cadastro Ambiental Rural - CAR”.
+Este documento é válido como inscrição provisória para todos os fins legais até análise e manifestação do órgão ambiental competente.
+Prazo para apresentação de documentos:
+
+O declarante tem prazo de 15 dias a partir da emissão da solicitação para apresentar a documentação listada no Roteiro Orientativo para Inscrição no CAR, no escritório do Idaf do município do imóvel.
+O órgão ambiental pode solicitar documentos adicionais, se necessário.
+Análise e validação:
+
+O órgão ambiental competente fará a análise das informações declaradas.
+Durante a análise, o proprietário não pode alterar os dados, exceto em casos de notificações para correção.
+Se forem detectadas pendências ou inconsistências, o requerente será notificado para correção no prazo definido, sob pena de cancelamento.
+Recibo de inscrição definitiva:
+
+Após validação, será emitido o Cadastro Ambiental Rural definitivo pelo Idaf, com validade indeterminada.
+Observações importantes:
+
+A inscrição no CAR é gratuita.
+A inscrição tem natureza declaratória e permanente.
+O declarante assume responsabilidade sobre a veracidade das informações.
+A inscrição no CAR não substitui licenças ambientais nem autorizações para exploração.
+O CAR é condição obrigatória para adesão ao Programa de Regularização Ambiental (PRA).","0,7908","0,012","0,635",fraco,1,1,0,0,0,,,,,
+Para que serve a inscrição do imóvel rural no CAR?,"A inscrição do imóvel rural no CAR serve para:
+
+cumprir da obrigatoriedade de declaração e registro das informações ambientais de todos os imóveis rurais no Brasil e emissão do “Recibo de Inscrição do Imóvel Rural no CAR”;
+registrar a área de Reserva Legal no órgão ambiental competente, e como requisito para aprovação da sua localização;
+proceder à regularização ambiental mediante adesão aos Programas de Regularização Ambiental dos Estados e do Distrito Federal – PRA;
+acessar aos programas de apoio governamental;
+requisitar autorização da prática de aquicultura e infraestrutura a ela associada nos imóveis rurais com até 15 (quinze) módulos rurais, localizados em áreas de preservação permanente;
+requisitar autorização de supressão de floresta ou outras formas de vegetação nativa no imóvel rural;
+requisitar o cômputo das Áreas de Preservação Permanente no cálculo da Reserva Legal do imóvel;
+requisitar autorização da exploração econômica da Reserva Legal mediante manejo sustentável;
+requisitar a constituição de servidão ambiental e Cota de Reserva Ambiental no imóvel rural, e para acessar os mecanismos de compensação da Reserva Legal;
+requisitar autorização de intervenção e supressão de vegetação em Áreas de Preservação Permanente e de Reserva Legal para atividades de baixo impacto ambiental; e
+requisitar a autorização da continuidade das atividades agrossilvipastoris, de ecoturismo e de turismo rural em áreas rurais consolidadas até em 22 de julho de 2008 localizadas em Áreas de Preservação Permanente e Reserva Legal; e para
+acessar o credito agrícola, em qualquer de suas modalidades, após 31 de dezembro de 2017.","A inscrição do imóvel rural no Cadastro Ambiental Rural (CAR) serve para:
+
+Integrar informações ambientais das propriedades e posses rurais em uma base de dados pública e eletrônica, com finalidade de controle, monitoramento, planejamento ambiental e econômico, e combate ao desmatamento.
+Garantir o cumprimento da legislação ambiental, conforme disposto na Lei nº 12.651, de 2012.
+Constituir condição obrigatória para adesão ao Programa de Regularização Ambiental (PRA), que deve ser requerida dentro dos prazos legais.
+Registrar dados declaratórios sobre o imóvel rural, como identificação do proprietário ou possuidor, comprovação da propriedade ou posse, e planta georreferenciada com indicação das áreas de preservação permanente, uso restrito, áreas consolidadas e reserva legal.
+Servir como documento válido para todos os fins previstos em lei, enquanto estiver em análise e manifestação do órgão ambiental competente (Idaf).
+Permitir o acompanhamento e a validação das informações declaradas, que são de responsabilidade do declarante, sob pena de sanções em caso de falsidade ou omissão.
+Além disso, a inscrição no CAR é gratuita e tem natureza declaratória e permanente, sendo fundamental para a gestão ambiental e regularização dos imóveis rurais. 🌱📋","0,9222","0,061","0,7499",aceitável,1,1,1,0,0,,,,,
+Quem deve estar inscrito no CAR?,"A inscrição no CAR é obrigatória para todos os imóveis rurais do país, inclusive áreas e territórios de uso coletivo, tituladas ou concedidas a povos ou comunidades tradicionais e imóveis rurais de Programa de Reforma Agrária caracterizados como assentamento, independente da forma de titulação e da exploração do imóvel rural.","Quem deve estar inscrito no CAR?
+
+Olá! Sobre sua pergunta, conforme o documento fornecido:
+
+Quem deve estar inscrito no CAR?
+
+A inscrição no Cadastro Ambiental Rural (CAR) é obrigatória para todas as propriedades e posses rurais.
+Isso inclui todos os imóveis rurais, independentemente da área, possuidores ou proprietários.
+A inscrição deve ser feita pelo proprietário, possuidor rural ou responsável direto pelo imóvel rural.
+O CAR tem caráter declaratório e permanente, contendo informações sobre o imóvel rural, como perímetro, áreas de preservação, uso restrito, reserva legal, entre outras.
+Resumo:
+
+Obrigatoriedade: Todas as propriedades e posses rurais.
+Responsável pela inscrição: Proprietário, possuidor rural ou representante legal.
+Prazo para inscrição: Deve ser requerida no prazo estabelecido pela legislação vigente (normalmente 1 ano contado da implantação do CAR, com prorrogações previstas).","0,8146","0,1233","0,6764",fraco,1,1,0,0,0,,,,,
+Quem pode fazer a inscrição no CAR?,"A inscrição no CAR poderá ser feita por um cadastrante, pelo próprio proprietário / possuidor do imóvel rural ou por um representante legal, pessoa física que estará habilitada pelo proprietário / possuidor a representá-lo em todas as etapas do CAR.
+
+As áreas e territórios de uso coletivo, tituladas ou concedidas a povos ou comunidades tradicionais deverão ser inscritas no CAR pelo órgão ou instituição competente pela sua gestão ou pela entidade representativa proprietária ou concessionária dos imóveis rurais.
+
+É de responsabilidade do órgão fundiário competente a inscrição no CAR dos assentamentos de Reforma Agrária. Nos casos da inscrição individualizada dos lotes contidos nos assentamentos de Reforma Agrária, é opcional fazê-lo por seus próprios meios ou contando com o apoio do órgão fundiário competente, para proceder os respectivos cadastros no CAR.
+
+","Olá! 😊 Sobre sua pergunta:
+
+Quem pode fazer a inscrição no CAR?
+
+De acordo com o documento fornecido:
+
+A inscrição no CAR pode ser efetuada pelo proprietário rural, possuidor rural ou seu representante legalmente constituído.
+Também pode ser feita pelo responsável técnico pelo imóvel rural.
+Além disso, para propriedades familiares de até 4 módulos fiscais, terras indígenas e áreas tituladas de povos e comunidades tradicionais que usam coletivamente o território, pode ser solicitado apoio institucional ou de entidade habilitada para realizar a inscrição.
+
+Resumo:
+
+Proprietário rural
+Possuidor rural
+Representante legalmente constituído
+Responsável técnico
+Entidades habilitadas (em casos específicos, como agricultura familiar e terras indígenas)","0,8979","0,0962","0,7375",aceitável,1,1,1,0,0,,,,,
+Quem é o responsável pelas informações declaradas no CAR?,"As informações declaradas são de inteira responsabilidade do proprietário ou do possuidor do imóvel rural.
+
+O instituto da propriedade e da posse são aqueles definidos conforme o Código Civil. Assim sendo, entende-se como proprietário aquele que tem a faculdade de usar, gozar e dispor de parcela que compõe o imóvel rural, e o direito de reavê-la do poder de quem quer que injustamente a possua ou detenha e possuidor a qualquer título. É considerado possuidor aquele que tem a posse plena do imóvel rural, sem subordinação (posse com animus domini), seja por direito real de fruição sobre coisa alheia, como ocorre no caso do usufrutuário, seja por ocupação, autorizada ou não.","O responsável pelas informações declaradas no CAR é o proprietário ou possuidor rural declarante. Ele assume plena responsabilidade ambiental sobre o imóvel rural declarado em seu nome, conforme destacado no documento:
+
+As informações prestadas no CAR são de caráter declaratório.
+Os documentos, especialmente os de caráter pessoal ou dominial, são de responsabilidade do proprietário ou possuidor rural declarante.
+O declarante ficará sujeito às penalidades previstas em lei em caso de informações falsas, enganosas ou omissas.
+📌 Trecho relevante:
+
+""As informações prestadas no CAR são de caráter declaratório;
+Os documentos, especialmente os de caráter pessoal ou dominial, são de responsabilidade do proprietário ou possuidor rural declarante, que ficará sujeito à pena prevista no art. 299 do Código Penal e no art. 69-A da Lei no 9.605, de 1998;
+O declarante assume plena responsabilidade ambiental sobre o imóvel rural declarado em seu nome...""
+
+Se precisar de mais alguma informação sobre o CAR, estou à disposição! 🌱","0,7395","0,1329","0,6181",fraco,1,1,0,0,0,,,,,
+O que é o Recibo de Inscrição e o Número de Registro no CAR?,"O “Recibo de Inscrição do Imóvel Rural no CAR” emitido pelo SICAR, que inclui o 'Número de Registro no CAR', é o documento comprobatório da efetivação da inscrição no Sistema de Cadastro Ambiental Rural - SICAR. Formaliza entrega da documentação exigida para a análise da regularidade ambiental do imóvel rural e da localização da área de Reserva Legal (RL), mas não atesta a aprovação da localização da RL e nem serve como comprovação fundiária.
+
+Deve ser armazenado em pasta de fácil acesso pois é essencial ao usuário para cadastrar-se na Central do Proprietário / Possuidor e para retificar as informações declaradas ao SICAR.
+
+O Recibo de Inscrição é emitido ao usuário pelo SICAR em extensão '.pdf', ao ser recebido pelo SICAR o arquivo '.car'. Quando emitido ao usuário, esse documento '.pdf', pode ser salvo automaticamente no computador em 'Disco Local (C:) >> Users >> Nome do usuário >> Downloads'. Os Estados que utilizam Sistemas próprio ou Módulo de Cadastro do SICAR com receptor estadual necessitam efetuar integração com a base de dados do SICAR para a emissão do 'Recibo de Inscrição do Imóvel Rural no CAR'. Nesses casos, a emissão do Recibo não ocorrerá imediatamente após o envio do arquivo '.car' pelo usuário.
+
+","Recibo de Inscrição no CAR:
+
+É o comprovante de inscrição no Cadastro Ambiental Rural (CAR), emitido pelo sistema SICAR após a integração das informações do Simlam.
+Confirma que a declaração do imóvel rural no CAR foi realizada.
+Garante o cumprimento da Lei Federal nº 12.651/2012 no que diz respeito à inscrição no cadastro e ao acesso a crédito agrícola com instituições financeiras.
+Não substitui licenças ou autorizações ambientais para exploração florestal ou supressão de vegetação, nem dispensa outras autorizações para atividades econômicas no imóvel.
+Contém dados do imóvel rural (nome, município, UF, coordenadas geográficas, área total, módulos fiscais) e identificação do declarante (CPF, nome).
+É instrumento suficiente para atender ao disposto no art. 78-A da Lei nº 12.651, de 2012.
+Número de Registro no CAR:
+
+É o código alfa numérico único e nacional gerado no momento da inscrição do imóvel rural no CAR pelo SICAR.
+Composto pela identificação numeral sequencial, Unidade da Federação e código do município conforme classificação do IBGE.
+Serve para identificar unicamente o imóvel rural cadastrado no sistema.
+Resumo:
+
+Termo	Definição
+Recibo de Inscrição no CAR	Documento que comprova a inscrição do imóvel rural no CAR, emitido pelo SICAR após cadastro.
+Número de Registro no CAR	Código único que identifica o imóvel rural no sistema CAR, gerado no momento da inscrição.","0,9059","0,0672","0,7381",aceitável,1,1,1,0,0,,,,,
+Quais são os Estados que utilizam a versão padrão do Módulo de Cadastro do SICAR e quais possuem Sistemas próprios ou Módulo de Cadastro do SICAR com receptor estadual?,"Utilizam o Módulo de Cadastro do SICAR: Alagoas, Amapá, Amazonas, Ceará, Distrito Federal, Goiás, Maranhão, Minas Gerais, Paraíba, Paraná, Pernambuco, Piauí, Rio de Janeiro, Rio Grande do Norte, Roraima, Santa Catarina e Sergipe.
+
+Utilizam o Módulo de Cadastro do SICAR com receptor estadual: Acre, Pará, Rio Grande do Sul e Rondônia.
+
+Utilizam sistemas próprios: Bahia, Espirito Santo, Mato Grosso, Mato Grosso do Sul, São Paulo e Tocantins.
+
+Os Estados que utilizam Sistemas próprio ou Módulo de Cadastro do SICAR com receptor estadual (Receptor SICAR estadual) necessitam efetuar integração dos dados estaduais com a base do SICAR para a emissão do “Recibo de Inscrição do Imóvel Rural no CAR”, documento que comprova ao proprietário/possuidor a efetivação da inscrição no SICAR. Nesses casos, a emissão do Recibo não ocorrerá imediatamente após o envio do arquivo “.car” pelo usuário.",Não tenho informações sobre isso,"0,283","0,0281","0,232",ruim,0,0,0,0,0,,,,,
+O que é o Demonstrativo da Situação do CAR?,"O Demonstrativo da Situação do CAR é um documento disponibilizado pelo SICAR que apresenta informações do cadastro do imóvel rural quanto:
+
+à situação do cadastro (ativo, pendente ou cancelado);
+à condição do andamento do processo de análise do cadastro (aguardando análise, em análise, analisado com pendências etc.);
+aos dados declarados no CAR relativos à Cobertura do Solo, Reserva Legal, Áreas de Preservação Permanente e Áreas de Uso Restrito; e
+à situação da Reserva Legal.
+Em breve, o Demonstrativo da Situação do CAR também apresentará informações das áreas a recompor em Reserva Legal (RL), Áreas de Preservação Permanente e Áreas de Uso Restrito, bem como áreas de excedente / passivo de RL e das envolvidas em compensação.
+
+Poderá ser consultado no SICAR, pelo link https://https://car.gov.br/#/consultar, ou pela Central do Proprietário / Possuidor, link https://https://car.gov.br/#/central/acesso.
+
+","O Demonstrativo da Situação das Informações Declaradas no CAR é um relatório disponibilizado pelo SICAR que apresenta a situação das informações cadastradas no Cadastro Ambiental Rural (CAR) referentes às:
+
+Áreas de Preservação Permanente (APP)
+Áreas de uso restrito
+Reserva Legal
+Esse demonstrativo reflete as informações declaradas, retificadas ou alteradas pelo proprietário ou possuidor de imóveis rurais e pode ser consultado no sítio eletrônico www.car.gov.br.
+
+Ele pode apresentar as seguintes situações relativas ao cadastro do imóvel rural:
+
+Ativo, quando:
+A inscrição no CAR foi concluída;
+Estão sendo cumpridas as obrigações de atualização das informações;
+As informações declaradas foram analisadas e consideradas regulares.
+O demonstrativo serve para acompanhar a regularidade ambiental do imóvel rural e é fundamental para o controle, monitoramento e planejamento ambiental.
+
+📌 Referências: Artigos 49, 50 e 51 do documento fornecido..
+","0,9084","0,127","0,7521",aceitável,1,1,1,0,0,1,,,,
+Qual é a diferença entre o “Recibo de Inscrição do Imóvel Rural no CAR” e o “Demonstrativo da Situação do CAR”?,"O Recibo de Inscrição emitido pelo SICAR nos termos do §1º do art. 3º do Decreto nº 8.235, de 05 de maio de 2014 constitui documento comprobatório da efetivação da inscrição no Sistema de Cadastro Ambiental Rural – SICAR e protocolo de entrega da documentação exigida para a análise da localização da área de Reserva Legal. Apresenta informações relativas ao domínio e titularidade declaradas.
+
+O Recibo de Inscrição não atesta a aprovação da localização da Reserva Legal conforme §1º do art.14 da Lei nº 12.651 de 25 de maio de 2012, e não se serve à aplicação do §1º do artigo 12 e dos artigos 16 e 18 da mesma Lei.
+
+O Demonstrativo da Situação do CAR disponibilizado conforme art. 20 do Decreto nº 8.235, de 05 de maio de 2014 refletirá a situação das declarações e informações cadastradas ou retificadas no CAR no ato de consulta, incluída a situação do imóvel, a situação da aprovação da localização da área de reserva legal prevista no §1º do art.14 da Lei nº 12.651 de 25 de maio de 2012, e os indicativos de ativos ou déficits de remanescentes de vegetação nativa em áreas de reserva legal e de preservação permanente. É disponibilizado pelo SICAR para consultas no próprio site, link https://https://car.gov.br/#/consultar, ou pela Central do Proprietário / Possuidor, link https://https://car.gov.br/#/central/acesso.
+
+","Recibo de Inscrição do Imóvel Rural no CAR
+O que é?
+Um comprovante emitido pelo SICAR após a inscrição do imóvel rural no CAR.
+
+Finalidade:
+Confirma que a declaração do imóvel rural foi realizada no CAR, garantindo o cumprimento da Lei Federal nº 12.651/2012 no que diz respeito à inscrição e ao acesso ao crédito agrícola junto às instituições financeiras.
+
+Características importantes:
+
+É um documento de caráter declaratório e suficiente para atender o disposto na lei.
+Não substitui licenças ou autorizações ambientais para exploração florestal ou supressão de vegetação.
+Não é título para reconhecimento de propriedade ou posse.
+Contém informações gerais do imóvel e do declarante, como localização, área, e dados pessoais.
+Demonstrativo da Situação do CAR
+O que é?
+Um relatório disponibilizado pelo SICAR que apresenta a situação das informações declaradas no CAR relativas às Áreas de Preservação Permanente (APP), áreas de uso restrito e Reserva Legal.
+
+Finalidade:
+Permite acompanhar o status das declarações e informações cadastradas, retificadas ou alteradas pelo proprietário ou possuidor do imóvel rural.
+
+Características importantes:
+
+Pode ser consultado no sítio eletrônico oficial do CAR (http://www.car.gov.br).
+Apresenta situações do cadastro como: ativo, pendente, suspenso, cancelado, entre outras.
+Reflete a regularidade ou inconsistência das informações declaradas, auxiliando no monitoramento e controle ambiental.
+Resumo da diferença
+Aspecto	Recibo de Inscrição do CAR	Demonstrativo da Situação do CAR
+Natureza	Comprovante de inscrição declaratória	Relatório de status e situação das informações
+Emissor	SICAR após inscrição no CAR	SICAR, disponível online
+Finalidade	Confirmação da inscrição e cumprimento legal	Monitoramento da regularidade e atualização
+Substitui licença ambiental?	Não	Não
+Consulta	Documento entregue ao declarante	Consulta pública via site oficial
+Indica situação do cadastro?	Não diretamente	Sim, mostra status como ativo, pendente, cancelado, etc.
+","0,8852","0,0648","0,7211",aceitável,1,1,1,0,0,1,,,,
+Qual é a diferença entre o Protocolo de preenchimento e Recibo de Inscrição do Imóvel Rural no CAR?,"O Protocolo é o documento que representa que a declaração do Módulo de Cadastro do SICAR foi preenchida e que o arquivo '.car' foi gerado, ao passo que o Recibo é o documento que comprova o envio com sucesso dessas informações à base do SICAR e, por consequência, a efetivação da inscrição do imóvel rural no CAR.","Protocolo de preenchimento (Solicitação de Inscrição no CAR)
+É um documento emitido no momento da inscrição inicial do imóvel rural no CAR, gerado pelo sistema Simlam e integrado ao Sicar.
+Representa a inscrição provisória do imóvel no CAR, válida para todos os fins previstos em lei até que haja análise e manifestação do órgão competente (Idaf).
+Serve como uma solicitação formal de inscrição e contém as informações básicas do declarante, localização e área do imóvel.
+Para manter sua validade, o declarante deve apresentar a documentação exigida no prazo estabelecido.
+Pode ter sua validade suspensa ou cancelada caso sejam constatadas irregularidades.
+Não é um documento definitivo, pois ainda depende da análise e validação técnica.
+Recibo de Inscrição do Imóvel Rural no CAR
+É o comprovante final da inscrição no CAR, emitido pelo Sicar após a integração e análise das informações declaradas.
+Confirma que a declaração do imóvel rural no CAR foi realizada e está em conformidade com a Lei nº 12.651/2012.
+Representa o cumprimento legal da inscrição e permite o acesso a benefícios como crédito agrícola junto a instituições financeiras.
+Não substitui nenhuma licença ou autorização ambiental para exploração ou supressão de vegetação.
+Indica que o imóvel está inscrito oficialmente no CAR, mas não constitui título de propriedade ou posse.
+O recibo é um documento mais completo e definitivo em relação ao protocolo inicial.
+Resumo da diferença principal:
+Aspecto	Protocolo de Preenchimento	Recibo de Inscrição no CAR
+Natureza	Inscrição provisória / solicitação inicial	Comprovante definitivo da inscrição
+Emissão	Imediata após preenchimento no sistema	Após análise e integração dos dados
+Validade	Válido até análise e manifestação do órgão	Documento oficial que confirma a inscrição
+Função	Confirma o início do processo de inscrição	Confirma o cumprimento legal da inscrição
+Substitui licença ambiental?	Não	Não","0,7906","0,0391","0,6403",fraco,1,1,0,0,0,1,,,,
+"Durante a aquisição ou venda de um imóvel rural quais são os procedimentos, em relação ao CAR, que devem ser observados?","Primeiramente, em relação ao CAR, recomenda-se como procedimento, solicitar ao vendedor a cópia ou o número do 'Recibo de Inscrição do Imóvel Rural no CAR'; e verificar, por meio do Demonstrativo da Situação do CAR, a situação das declarações e informações cadastradas ou retificadas, em especial, a situação da aprovação da localização da área de Reserva Legal e dos indicativos de ativos ou déficits de remanescentes de vegetação nativa em áreas de Reserva Legal e de Preservação Permanente.
+
+A área de Reserva Legal deverá ser registrada no órgão ambiental competente por meio de inscrição no CAR, sendo vedada a alteração de sua destinação, nos casos de transmissão, a qualquer título, ou de desmembramento, com as exceções previstas em Lei. A aprovação da localização da Reserva Legal é fundamental aos procedimentos de compra e venda, uma vez que, em caso de fracionamento do imóvel rural, a qualquer título, será considerada, para fins de definição da área mínima de reserva, a área do imóvel antes do fracionamento.
+
+Por meio do Demonstrativo da Situação do CAR também podem ser verificadas outras restrições do imóvel rural, como sobreposições com outros imóveis rurais, com Terras Indígenas, com Unidades de Conservação da Natureza, e com áreas embargadas pelos órgãos de controle e fiscalização ambiental
+
+Essa verificação é feita no SICAR, link https://https://car.gov.br/#/consultar, inserindo o número do Recibo de Inscrição do Imóvel Rural no CAR ou número do Protocolo de preenchimento. Uma vez efetivada a negociação do imóvel rural, o novo proprietário ou possuidor deve assegurar-se que a inscrição no CAR seja retificada para alteração dos dados referentes à transação, incluída a atualização dos dados referentes aos novos proprietários.
+
+","Procedimentos no CAR em casos de aquisição ou venda de imóvel rural:
+
+Atualização do CAR: Quando ocorre alteração de natureza dominial ou possessória, como na compra ou venda do imóvel rural, o proprietário ou possuidor deve realizar a atualização dos dados no CAR. Essa atualização é obrigatória e deve ser feita junto ao órgão competente, conforme disposto no Art. 40.
+
+Retificação do CAR: Caso haja mudança nos dados do proprietário, do imóvel e/ou no projeto geográfico, é obrigatória a retificação do CAR, protocolada no órgão ambiental competente (Art. 4º, § 2º).
+
+Prazo para atualização: A atualização deve ser feita sempre que houver alteração dominial ou possessória, e a inscrição no CAR é condição para adesão ao Programa de Regularização Ambiental (PRA), que deve ser requerida dentro dos prazos legais (Art. 36 e Art. 31).
+
+Responsabilidade: O declarante é responsável pelas informações prestadas no CAR, e pode incorrer em sanções penais e administrativas se fornecer dados falsos ou omissos (Art. 6º, § 1º).
+
+Cancelamento e novo cadastro: No caso de desmembramento ou fracionamento do imóvel rural, o CAR da nova área deve ser criado a partir de novo requerimento, tornando o CAR anterior inválido até a atualização (Art. 36, § 1º e Art. 4º, § 3º).
+
+Documentação necessária: Para inscrição ou atualização, devem ser apresentados dados cadastrais do proprietário, comprovação da propriedade ou posse, planta georreferenciada do imóvel e demais informações ambientais (Art. 3º).
+
+Resumo prático:
+
+Atualize o CAR imediatamente após a compra ou venda do imóvel rural.
+Protocole a retificação junto ao órgão ambiental municipal, estadual ou federal competente.
+Forneça documentação correta e planta georreferenciada atualizada.
+Mantenha o cadastro correto para assegurar a regularidade ambiental e possibilidade de adesão ao PRA.","0,8457","0,038","0,6842",fraco,1,1,0,0,0,1,,,,
+O que é o arquivo de extensão “.car”?,"O arquivo de extensão '.car' é o arquivo gerado pelo Módulo de Cadastro do SICAR, ao gravar para envio um cadastro finalizado. O envio do arquivo de extensão '.car' depende de acesso à internet, e poderá ser feito no Módulo de Cadastro do SICAR, botão “ENVIAR”, ou no SICAR, aba 'ENVIAR', link https://car.gov.br/#/enviar.
+
+O sucesso no envio desse arquivo é confirmado pelo 'Recibo de Inscrição do Imóvel Rural no CAR' emitido pelo SICAR em extensão '.pdf', é o documento comprobatório da efetivação da inscrição no Sistema de Cadastro Ambiental Rural - SICAR.",Não tenho informações sobre isso.,"0,2374","0,0537","0,2007",ruim,0,0,0,0,0,0,,,,
+Onde acesso os Manuais do CAR?,"No caso os sistemas desenvolvidos pelo Serviço Florestal Brasileiro, os Manuais do CAR estão disponíveis no SICAR, aba “Atendimento”, no link https://https://car.gov.br/#/suporte. Caso existam dúvidas que não forem atendidas pelos Manuais, relativas a inscrição, consulta e acompanhamento da situação da regularização ambiental de seus imóveis rurais, solicite ajuda ao órgão estadual competente em que se localiza o imóvel. Contatos disponíveis em https://car.gov.br/#/contatos.
+
+","De acordo com o documento fornecido, os manuais do CAR podem ser acessados no portal do SIMLAM, conforme mencionado no trecho:
+
+Roteiro Orientativo para Inscrição no CAR disponível no portal do SIMLAM.
+Além disso, para acesso aos serviços relacionados ao CAR, há o link do Conecta cidadão:
+
+https://conectacidadao.es.gov.br/servico/42df6827-e704-40a7-8d8f-b1efe5448dcb/area-florestal-e-licenciamento-ambiental-cadastro-ambiental-rural-car","0,7697","0,0647","0,6287",fraco,1,1,0,0,0,1,,,,
+"Como atualizar o Módulo de Cadastro e não perder os cadastros “em andamento” ou “concluídos”, porém não enviados ao SICAR?","Para atualizar o Módulo de Cadastro e não perder os cadastros “em andamento” ou “concluídos”, porém não enviados ao SICAR, a atualização deverá ser feita pelo botão “Atualizar” do Módulo de Cadastro instalado em seu computador. Caso a versão atualizada do aplicativo seja obtida diretamente do site e instalada novamente no computador, sobre a versão já instalada, os CAR preenchidos serão perdidos.
+
+Para isso, o computador precisará de conexão à internet. Caso o Módulo de Cadastro não esteja atualizado, após clicar no botão mencionado, será exibida uma mensagem e então efetuado o download do pacote de atualizações que deverá ser instalado no computador. É essencial solicitar a atualização de versão a versão até o sistema apresentar a mensagem “O sistema já está atualizado”, dessa forma é possível saber se o Módulo de Cadastro já está com a versão atual.","Como atualizar o Módulo de Cadastro sem perder cadastros em andamento ou concluídos
+
+    Manter sempre a solicitação válida anterior ao encerramento do prazo para direito à adesão ao PRA, mesmo que seja gerado um novo código para o empreendimento. Isso garante a manutenção do direito à adesão ao Programa de Regularização Ambiental (PRA).
+    Deve ser providenciada a importação do requerimento da solicitação válida sem código de empreendimento.
+    O requerimento importado deve ser protocolado e apensado ao processo já existente da propriedade, mesmo que haja diferentes códigos de empreendimento.
+    Caso as informações da solicitação mantida sejam divergentes da pendente, deve ser cadastrada uma nova solicitação de inscrição para retificação, utilizando o novo código de empreendimento gerado.
+    Deve ser solicitada à SREG a invalidação da solicitação pendente ou reprovada, visto que não foi gerado número SICAR, necessitando apenas de solicitação do técnico do Idaf.
+    Não descartar ou cancelar solicitações iniciais para manter o histórico e evitar perda de benefícios associados ao PRA.
+
+Esse procedimento evita erros que possam gerar a necessidade de cancelamento e mantém o histórico e a validade dos cadastros no sistema.","0,7517","0,0683","0,6151",fraco,1,1,0,0,0,1,,,,
+É necessário apresentar documentos comprobatórios?,"Os documentos comprobatórios das informações declaradas poderão ser solicitados, a qualquer tempo, pelo órgão competente, e poderão ser fornecidos por meio digital. No processo de análise das informações declaradas no CAR, o órgão competente poderá realizar vistorias no imóvel rural, bem como solicitar do proprietário ou possuidor rural a revisão das informações declaradas e os respectivos documentos comprobatórios. Caso detectadas pendências ou inconsistências nas informações declaradas e nos documentos apresentados no CAR, o órgão responsável poderá notificar o requerente para que preste informações complementares ou promova a correção e adequação das informações prestadas.
+
+","Sim, é necessário apresentar documentos comprobatórios para o Cadastro Ambiental Rural (CAR). Conforme o documento fornecido:
+
+Os documentos comprobatórios relativos às informações declaradas no CAR podem ser solicitados pelo órgão competente a qualquer momento e podem ser fornecidos por meio digital.
+Para a inscrição no CAR, o proprietário ou possuidor rural deve apresentar documentos como comprovação da propriedade ou posse, croqui indicando perímetro do imóvel, áreas de preservação, reserva legal, entre outros.
+Em caso de pendências ou inconsistências, o órgão responsável notificará o requerente para que apresente informações complementares ou corrija as informações, sob pena de cancelamento da inscrição.
+Além disso, para assinatura do Termo de Adesão Institucional para apoio ao CAR, órgãos e entidades devem apresentar documentação específica, como contrato social, CPF, documento de identidade, comprovante de vinculação, entre outros.
+Portanto, sim, a apresentação de documentos comprobatórios é uma etapa fundamental para a validação e regularização do CAR. 📄✅.","0,7952","0,053","0,6467",fraco,1,1,0,0,0,1,,,,
+Quais são os dados do imóvel rural a serem declarados no CAR?,"Os dados do imóvel rural a serem declarados na inscrição no CAR devem retratar a realidade do imóvel rural no momento da declaração. A contemplar as seguintes informações:
+
+identificação do proprietário ou possuidor do imóvel rural;
+comprovação da propriedade ou posse rural;
+planta georreferenciada da área do imóvel, contendo a indicação das coordenadas geográficas com pelo menos um ponto de amarração do perímetro do imóvel e o perímetro das áreas de servidão administrativa, e a informação da localização das áreas de remanescentes de vegetação nativa, das Áreas de Preservação Permanente, das áreas de uso restrito, das áreas consolidadas e, caso existente, a localização da Reserva Legal.
+Nos casos referentes à inscrição no CAR de imóveis até 4 módulos fiscais, que desenvolva atividades agrossilvipastoris, bem como de áreas tituladas de povos e comunidades tradicionais, que façam uso coletivo do seu território, poderá ser apresentado um croqui, indicando a área do imóvel rural, as Áreas de Preservação Permanente, as áreas de remanescentes de vegetação nativa que formam a Reserva Legal, as áreas de servidões administrativas, áreas consolidadas e as áreas de uso restrito, quando houver.
+
+Deverão ser apresentados separadamente os dados referentes aos demais proprietários ou possuidores vinculados ao imóvel além daquele responsável pela inscrição, bem como o detalhamento das informações comprobatórias de todas as propriedades ou posses que compõem o imóvel rural, contemplando todos os envolvidos.
+
+Para atendimento da elaboração da representação gráfica, planta ou croqui, do imóvel rural, poderão ser utilizadas imagens de satélite ou outros métodos disponíveis.
+
+A localização e a delimitação sobre imagens georreferenciadas de áreas de remanescentes de vegetação nativa deverão ser indicadas sobre toda a área do imóvel rural, inclusive, sobre:
+
+Áreas de Preservação Permanente;
+áreas de uso restrito; e
+áreas de Reserva Legal.
+A localização e a delimitação sobre imagens georreferenciadas das Áreas de Preservação Permanente deverão observar:
+
+as áreas definidas no art. 4 º da Lei n º 12.651, de 2012;
+as áreas criadas entorno de reservatório d'água artificial, nos termos do art. 5 º da Lei n º 12.651, de 2012.
+A localização e a delimitação sobre imagens georreferenciadas de áreas de uso restrito deverão observar os critérios descritos nos arts. 10 e 11 da Lei n º 12.651, de 2012, e, ainda:
+
+nas propriedades localizadas em áreas de pantanais e planícies pantaneiras deverão ser indicadas, além do perímetro da área destinada à composição da Reserva Legal, as Áreas de Preservação Permanente consolidadas até 22 de julho de 2008; e
+declarar as áreas com topografia com inclinação entre 25 º e 45 º
+A localização e a delimitação sobre imagens georreferenciadas de áreas consolidadas deverão indicar:
+
+áreas consolidadas em Áreas de Preservação Permanentes e Reserva Legal até 22 de julho de 2008, conforme o disposto no art. 61-A da Lei n º 12.651, de 2012; e
+as áreas de uso restrito, conforme o disposto nos arts. 10 e 11 da Lei n º 12.651, de 2012.
+A localização e a delimitação sobre imagens georreferenciadas de áreas de Reserva Legal deverão observar os seguintes critérios:
+
+o cálculo da área de Reserva Legal dos imóveis que apresentem as áreas de servidão administrativa, será o resultado da exclusão dessas do somatório da área total do imóvel rural;
+para a área de Reserva Legal que já tenha sido averbada na matrícula do imóvel, ou no Termo de Compromisso, quando se tratar de posse, poderá o proprietário ou possuidor informar, em ambos os casos, no ato da inscrição, as coordenadas do perímetro da Reserva Legal ou comprovar por meio da apresentação da certidão de registro de imóveis onde conste a averbação; e
+para os casos em que houve supressão da vegetação, antes de 22 de julho de 2008, e que foram mantidos os percentuais de Reservas Legais previstos na legislação em vigor à época, os proprietários ou possuidores de imóveis rurais deverão comprovar que a supressão da vegetação ocorreu conforme disposto no art. 68 da Lei n º 12.651, de 2012.
+A localização e a delimitação sobre imagens georreferenciadas de áreas de Reserva Legal nos imóveis rurais que detinham, em 22 de julho de 2008, área de até 4 (quatro) módulos fiscais e que possuam remanescente de vegetação nativa em percentuais inferiores ao previsto no art. 12 da Lei n º 12.651, de 2012, será descrita sobre a área ocupada com a vegetação nativa existente em 22 de julho de 2008, vedadas novas conversões para uso alternativo do solo, conforme disposto no art. 67 da Lei n º 12.651, de 2012.
+
+Para cumprimento da manutenção da área de Reserva Legal, nas pequenas propriedades ou posses rurais familiares, poderão ser computadas as áreas com plantios de árvores frutíferas, ornamentais ou industriais, compostas por espécies exóticas, cultivadas em sistema intercalar ou em consórcio com espécies nativas da região em sistemas agroflorestais, conforme disposto no art. 54 da Lei n º 12.651, de 2012.
+
+Nos casos em que as Reservas Legais não atendam aos percentuais mínimos estabelecidos no art. 12 da Lei 12.651/2012, o proprietário ou possuidor rural poderá solicitar a utilização, caso os requisitos estejam preenchidos, isolada ou conjuntamente, dos mecanismos previstos nos arts. 15, 16 e 66 da Lei n º 12.651, de 2012, para fins de alcance do percentual, quais sejam:
+
+o cômputo das Áreas de Preservação Permanente no cálculo do percentual da Reserva Legal;
+a instituição de regime de Reserva Legal em condomínio ou coletiva entre propriedades rurais;
+a recomposição;
+a regeneração natural da vegetação; ou
+a compensação da Reserva Legal
+O proprietário ou possuidor de imóvel rural que não dispõe dos percentuais estabelecidos nos incisos I e II do art. 12 da Lei n º 12.651, de 2012 e que deseje utilizar a compensação de Reserva Legal em Unidade de Conservação, conforme previsto no inciso III do § 5 º do art. 66 da mesma Lei, poderá indicar no ato da sua inscrição a pretensão de adoção dessa alternativa para regularização, conforme disposto no art. 26, desta Instrução Normativa.
+
+Os proprietários ou possuidores de imóveis rurais que já compensaram a Reserva Legal em outro imóvel, em qualquer das modalidades, deverão indicar no ato da inscrição o número de inscrição no CAR do imóvel de origem da Reserva Legal ou a identificação do proprietário ou possuidor do imóvel rural.
+
+Para o imóvel rural que contemple mais de um proprietário ou possuidor, pessoa física ou jurídica, deverá ser feita apenas uma única inscrição no CAR, com indicação da identificação correspondente a todos os proprietários ou possuidores.
+
+Os proprietários ou possuidores de imóveis rurais, que dispõem de mais de uma propriedade ou posse em área contínua, deverão efetuar uma única inscrição para esses imóveis.
+
+Para o cumprimento dos percentuais da Reserva Legal, bem como para a definição da faixa de recomposição de Áreas de Preservação Permanente, previstos nos arts. 12 e 61-A da Lei n º 12.651, de 2012, o proprietário ou possuidor deverá inscrever a totalidade das áreas.
+
+Quando o imóvel rural tiver seu perímetro localizado em mais de um ente federado, a inscrição no CAR dar-se-á naquele que contemple o maior percentual de sua área, em hectare.
+
+Diante do desmembramento ou fracionamento de imóvel rural já cadastrado no CAR, o proprietário ou possuidor responsável deverá promover a atualização do cadastro realizado. Para o imóvel rural originado do desmembramento ou fracionamento, o proprietário ou possuidor de imóvel rural deverá realizar nova inscrição.
+
+O proprietário de imóvel rural que pretende destinar as áreas excedentes de Reserva Legal, parcial ou integralmente, para a compensação de Reserva Legal, conforme previsto no art. 66 da Lei n º 12.651, de 2012, poderá declarar essa intenção no ato da sua inscrição.
+
+Será facultado ao proprietário ou possuidor de imóvel rural declarar no CAR os autos de infração emitidos pelos órgãos competentes, anteriores a 22 de julho de 2008, referentes ao imóvel rural cadastrado, conforme estabelecido no art. 60 da Lei n º 12.651, de 2012.
+
+As informações declaradas no CAR deverão ser atualizadas pelo proprietário ou possuidor rural sempre que houver notificação dos órgãos competentes ou quando houver alteração de natureza dominial ou possessória, mediante autorização do órgão competente.","Olá! 😊 Sobre os dados do imóvel rural a serem declarados no Cadastro Ambiental Rural (CAR), conforme o documento fornecido, devem ser informados:
+
+Dados do imóvel rural no CAR:
+
+Nome do imóvel rural
+Município
+Unidade da Federação (UF)
+Coordenada geográfica do centroide do imóvel rural (Latitude e Longitude)
+Área total (hectares) do imóvel rural
+Módulos fiscais
+Planta georreferenciada do perímetro do imóvel rural
+Áreas de interesse social e de utilidade pública
+Áreas de remanescentes de vegetação nativa
+Área de Reserva Legal
+Áreas de Preservação Permanente
+Áreas de uso restrito
+Áreas consolidadas
+Áreas de servidão administrativa
+Áreas de compensação
+Além disso, devem ser apresentados os dados cadastrais do proprietário ou possuidor rural e do responsável técnico, quando houver.
+
+Essas informações devem ser declaradas com base em documentos e projetos geográficos que garantam a precisão do cadastro.","0,8341","0,0205","0,6714",fraco,1,1,0,0,0,1,,,,
+É obrigatório declarar na inscrição os dados de outros proprietários ou possuidores vinculados ao mesmo imóvel?,"Sim, os dados referentes aos demais proprietários ou possuidores vinculados ao imóvel além daquele responsável pela inscrição, bem como o detalhamento das informações comprobatórias de identificação dos proprietários/ possuidores, e de todas as propriedades ou posses que compõem o imóvel rural, deverão ser apresentados separadamente, contemplando todos os envolvidos.","Sim, é obrigatório declarar na inscrição os dados referentes aos demais proprietários ou possuidores vinculados ao imóvel além daquele responsável pela inscrição. Essas informações devem ser apresentadas separadamente, contemplando todos os envolvidos, conforme o Art. 15 do documento.
+
+Resumo:
+
+Deve-se informar todos os proprietários ou possuidores vinculados ao imóvel rural.
+As informações devem ser apresentadas separadamente para cada um.","0,8697","0,0954","0,7149",aceitável,1,1,1,0,0,1,,,,
+O que é considerado imóvel rural para o CAR?,"Para efeitos de inscrição no CAR, o imóvel rural é definido como de área contínua, localizado em zona rural ou urbana, que se destine ou possa se destinar à exploração agrícola, pecuária, extrativa vegetal, florestal ou agroindustrial, conforme disposto no inciso I do art. 4º da Lei no 8.629, de 25 de fevereiro de 1993, podendo ser caracterizado como:
+
+pequena propriedade ou posse: com área de até 4 (quatro) módulos fiscais, incluindo as terras indígenas demarcadas e demais áreas tituladas de povos e comunidades tradicionais que façam uso coletivo do seu território;
+média propriedade ou posse: com área superior a 4 (quatro) até 15 (quinze) módulos fiscais;
+grande propriedade ou posse: com área superior a 15 (quinze) módulos fiscais
+O conjunto de propriedades ou posses, em área contínua, pertencentes às mesmas pessoas, físicas ou jurídicas, será considerado como um único imóvel rural devendo ser feita uma única inscrição declarando as informações contidas nos respectivos documentos comprobatórios. Ressaltando que não é considerada quebra de continuidade a existência de estradas, córregos e pontes, por exemplo. Para o cumprimento dos percentuais da Reserva Legal, bem como para a definição da faixa de recomposição de Áreas de Preservação Permanente, previstos na Lei 12.651/12, será considerada a totalidade das áreas de propriedades e posses.
+
+","Olá! Sobre a sua pergunta, de acordo com o documento fornecido, imóvel rural para o Cadastro Ambiental Rural (CAR) é definido como:
+
+""o prédio rústico de área contínua, qualquer que seja sua localização, que se destine ou possa se destinar à exploração agrícola, pecuária, extrativa vegetal, florestal ou agroindustrial"".
+
+Além disso, o imóvel rural pode ser caracterizado como:
+
+Pequena propriedade ou posse: com área de até 4 (quatro) módulos fiscais, incluindo aquelas descritas nos termos do inciso V do art. 3º da Lei nº 12.651, de 2012;
+Média propriedade ou posse: (detalhes não especificados no trecho fornecido).
+Essa definição está prevista no Art. 2º, inciso I, da Instrução Normativa citada.","0,8674","0,1298","0,7199",aceitável,1,1,1,0,0,1,,,,
+O que é área de servidão administrativa?,"Área de servidão administrativa é uma área de utilidade pública declarada pelo Poder Público que afetem os imóveis rurais. (inciso V do artigo 2º da IN MMA nº 2, de 6/5/2014).
+
+A servidão administrativa é o ônus ou encargo imposto por uma disposição legal sobre uma propriedade e limitadora do exercício do direito da propriedade, por razões de utilidade pública. Resulta imediatamente da Lei e do fato de existir um objeto que a Lei considere como dominante sobre os prédios vizinhos.
+
+As servidões administrativas são as áreas ocupadas por rodovias, linhas de transmissão e reservatórios para abastecimento ou geração de energia declaradas como utilidade pública ou interesse social, entre outras. Essas áreas, quando existentes, ao serem declaradas no CAR, são descontadas da área total do imóvel para fins de cálculo do percentual para Reserva Legal, conforme previsto na Lei 12.651/12.
+
+","Área de servidão administrativa é definida como uma área de utilidade pública declarada pelo Poder Público que afeta imóveis rurais.
+
+Segundo o documento, a servidão administrativa:
+
+Pode ser instituída para fins como a implantação de reservatórios d’água artificiais destinados à geração de energia ou abastecimento público, entre outros usos públicos.
+Envolve a aquisição, desapropriação ou instituição pelo empreendedor da área em torno do empreendimento, conforme licenciamento ambiental.
+Deve observar faixas mínimas e máximas para Áreas de Preservação Permanente ao seu redor (exemplo: faixa mínima de 30 metros e máxima de 100 metros em área rural).
+A área sob servidão administrativa é considerada área de utilidade pública e está sujeita a restrições quanto ao uso e exploração, semelhantes às de Reserva Legal, conforme previsto na legislação.
+Deve constar no Cadastro Ambiental Rural (CAR) com delimitação georreferenciada.
+Em resumo, a área de servidão administrativa é uma faixa de terra com restrições de uso, declarada pelo Poder Público para atender a interesses públicos, afetando propriedades rurais, e que deve ser registrada e respeitada conforme a legislação ambiental vigente. 🌿📐
+","0,9279","0,1592","0,7741",aceitável,1,1,1,0,0,1,,,,
+O que é área consolidada?,"Área rural consolidada é a área do imóvel rural com ocupação antrópica preexistente a 22 de julho de 2008, com edificações, benfeitorias ou atividades agrossilvipastoris, admitida, neste último caso, a adoção do regime de pousio.
+
+","Olá! Sobre sua pergunta, de acordo com o documento fornecido, a definição de área urbana consolidada é a seguinte:
+
+Área urbana consolidada é aquela que atende aos seguintes critérios (conforme Lei nº 14.285, de 2021):
+
+a) Estar incluída no perímetro urbano ou em zona urbana pelo plano diretor ou por lei municipal específica;
+b) Dispor de sistema viário implantado;
+c) Estar organizada em quadras e lotes predominantemente edificados;
+d) Apresentar uso predominantemente urbano, caracterizado pela existência de edificações residenciais, comerciais, industriais, institucionais, mistas ou direcionadas à prestação de serviços;
+e) Dispor de, no mínimo, 2 (dois) dos seguintes equipamentos de infraestrutura urbana implantados:
+ 1. Drenagem de águas pluviais;
+ 2. Esgotamento sanitário;
+ 3. Abastecimento de água potável;
+ 4. Distribuição de energia elétrica e iluminação pública;
+ 5. Limpeza urbana, coleta e manejo de resíduos sólidos.","0,6531","0,0541","0,5333",fraco,1,0,0,0,0,1,,,,
+O imóvel rural que possui Reserva Legal averbada ou termo de compromisso para averbação é obrigado a ser inscrito no CAR? Qual é o tratamento para esses imóveis?,"Sim, a inscrição no CAR é obrigatória para todas as propriedades e posses rurais no Brasil. Nos casos em que a Reserva Legal já tenha sido averbada na matrícula do imóvel e a averbação identifique o perímetro e a localização da Reserva, o proprietário não será obrigado a delimitar a localização da Reserva Legal na inscrição. No entanto, deverá ser apresentada, para fins de comprovação, a certidão de registro de imóvel onde conste a averbação da Reserva Legal ou termo de compromisso já firmado nos casos de posse.
+
+
+","Resposta:
+Conforme o Art. 30 do documento, quando a Reserva Legal já tenha sido averbada na matrícula do imóvel e essa averbação identifique o perímetro e a localização da reserva, o proprietário não é obrigado a fornecer ao órgão ambiental as informações relativas à Reserva Legal previstas no inciso III do § 1º do art. 29.
+
+Para se desobrigar dessa obrigação, o proprietário deve apresentar ao órgão ambiental competente a certidão de registro de imóveis onde conste a averbação da Reserva Legal ou o termo de compromisso já firmado nos casos de posse.
+
+Além disso, o Art. 18 determina que a área de Reserva Legal deve ser registrada no órgão ambiental competente por meio de inscrição no CAR, sendo vedada a alteração de sua destinação, salvo exceções previstas em lei.
+
+No caso de posse, a Reserva Legal é assegurada por termo de compromisso firmado com o órgão competente, que tem força de título executivo extrajudicial.
+
+Em resumo:
+
+Imóveis com Reserva Legal averbada na matrícula podem ficar dispensados de fornecer certas informações no CAR, desde que comprovem a averbação por meio de certidão.
+A inscrição no CAR é obrigatória para registro da Reserva Legal, mas o registro no CAR desobriga a averbação no Cartório de Registro de Imóveis (§ 4º do Art. 18).
+A transferência da posse implica a sub-rogação das obrigações assumidas no termo de compromisso.","0,7695","0,1694","0,6495",fraco,1,1,0,0,0,1,,,,
+Quais são os requisitos mínimos que um computador deve possuir para instalação do Módulo de Cadastro do SICAR?,"Requisitos mínimos:
+
+Processador multinúcleo de 1,3 GHz ou mais rápido;
+Windows Server® 2003 R2 (32 bits e 64 bits);
+Windows Server® 2008 ou 2008 R2 (32 bits e 64 bits);
+Windows 7 (32 bits e 64 bits);
+Windows 8 (32 bits e 64 bits).
+Os requisitos mínimos podem ser consultados no site do CAR, por meio do link https://https://car.gov.br/#/baixar, ao selecionar a sigla do Estado em que se localiza o imóvel a ser declarado.
+
+",Não tenho informações sobre isso.,"0,2852","0,0771","0,2436",ruim,0,0,0,0,0,0,,,,
+Há custos para a inscrição do imóvel rural no CAR?,"Não, segundo o artigo 13 da Instrução Normativa MMA nº 2, de 6/5/2014, a inscrição e o registro do imóvel rural no CAR é gratuita.
+
+O registro do imóvel rural no Cadastro Ambiental Rural (CAR) é um ato administrativo sem previsão de taxação, porém, considerando que a adequada inscrição de um imóvel rural no CAR, e posterior envio à base de dados do SICAR, depende da interpretação de dispositivos legais, de acesso à internet, e de habilidades para operar computadores e ferramentas do SICAR, dependendo da complexidade da situação do imóvel pode haver necessidade de contratação de um profissional para a execução do serviço, com consequente cobrança. A Constituição Federal não veda a cobrança, por entidades privadas, pela prestação de serviços de apoio técnico a particulares para o cumprimento de exigências legais controladas pelo Estado, tais como a inscrição de imóveis rurais no CAR com uso dos sistemas de informações oficiais disponíveis.
+
+Como ato declaratório de particulares por força de lei, o cadastramento de imóveis rurais no CAR não é de iniciativa do poder público, cabendo a este apenas disponibilizar, na rede mundial de computadores, os sistemas eletrônicos de informações para que os proprietários e possuidores rurais possam cumprir com sua obrigação ambiental. O Ministério do Meio Ambiente (MMA) disponibiliza ao público, gratuitamente, o Módulo de Cadastro do Sistema de Cadastro Ambiental Rural (SICAR) no sítio eletrônico https://https://car.gov.br/#/, além de orientações necessárias para que os titulares de imóveis rurais, ou seus prepostos declarantes, possam elaborar os croquis eletrônicos e executar o devido registro público gratuito.
+
+Cabe ao poder público prestar apoio técnico e jurídico, assegurada a gratuidade, na inscrição de imóveis rurais de até 4 (quatro) módulos fiscais que desenvolvam atividades agrossilvipastoris, bem como para imóveis de áreas tituladas de povos e comunidades tradicionais que façam uso coletivo do seu território. Para os demais casos, a inscrição poderá ser efetuada pelo próprio proprietário/possuidor, caso este se sinta apto, ou por terceiro, na função de cadastrante.
+
+Para mais informações busque orientações junto ao órgão estadual competente, que pode ser encontrado no link https://https://car.gov.br/#/suporte.
+
+","A inscrição e o registro do imóvel rural no CAR são gratuitos.
+
+Isso está explícito no trecho:
+
+""Art. 13. A inscrição e o registro do imóvel rural no CAR é gratuita...""
+
+Além disso, para casos específicos de agricultura familiar, não é exigido pagamento de taxa de vistoria técnica (Art. 8º, § 2º).
+
+Portanto, não há custos para realizar a inscrição do imóvel rural no CAR. 😊","0,8822","0,0639","0,7185",aceitável,1,1,1,0,0,1,,,,
+A inscrição serve como comprovação fundiária?,"Conforme estipulado na Lei 12.651/2012, o CAR não será considerado título para fins de reconhecimento do direito de propriedade ou posse, tampouco substitui o cadastramento junto ao Sistema Nacional de Cadastro Rural – SNCR do Instituto Nacional de Colonização e Reforma Agrária – INCRA, conforme exigido no Art. 2° da Lei nº 10.267, de 28 de agosto de 2001, e a necessidade de certificação da poligonal do perímetro do imóvel junto ao INCRA, previsto no § 5º do art. 176 da Lei nº 6.015, de 31 de dezembro de 1973.
+
+",Não tenho informações sobre isso.,"0,2329","0,0471","0,1957",ruim,0,0,0,0,0,0,,,,
+Quais são as consequências e sanções para o imóvel rural que não estiver inscrito no CAR?,"Não está regulamentada em norma federal explicitamente a previsão de sanções para a não adesão ao CAR. No entanto, existem sanções para o descumprimento da manutenção da área com cobertura de vegetação nativa a título de Reserva Legal.
+
+Está prevista na Lei 12.651/12, como consequências para a não inscrição do imóvel no CAR, a impossibilidade de acesso ao crédito rural a partir de 31 de dezembro de 2017, impedimento no acesso a autorizações de supressão de vegetação e outras licenças, bem como restrições ao ingresso em programas de apoio e pagamentos por serviços ambientais governamentais. Além disso, a inscrição no CAR é condição obrigatória para a adesão ao PRA. Essas são as consequências conforme legislação Federal existente, podendo existir outras restrições, ou até sanções, em âmbito Estadual, Distrital ou Municipal. Informações detalhadas podem ser obtidas junto ao órgão estadual competente. Contatos disponíveis em https://car.gov.br/#/contatos.","Olá! Sobre as consequências e sanções para o imóvel rural que não estiver inscrito no CAR, o documento informa o seguinte:
+
+Consequências e sanções para imóvel rural não inscrito no CAR:
+
+A inscrição no CAR é obrigatória para todas as propriedades e posses rurais, conforme o art. 29 da Lei nº 12.651, de 2012.
+A não inscrição no CAR no prazo estabelecido pode acarretar sanções penais e administrativas ao proprietário ou possuidor rural, conforme o § 1º do art. 6º.
+O proprietário ou possuidor rural que não realizar a inscrição poderá ter sua inscrição no CAR suspensa ou cancelada a qualquer tempo pelo órgão competente (Idaf), conforme o art. 7º.
+A inscrição no CAR é condição para a regularização ambiental do imóvel rural e para acesso a créditos agrícolas, logo a ausência pode impedir o acesso a esses benefícios.
+O documento esclarece que o CAR não substitui licenças ambientais, mas a falta de inscrição pode dificultar a regularização ambiental e o cumprimento das obrigações legais.
+O declarante assume plena responsabilidade ambiental pelo imóvel rural declarado, e informações falsas ou omissas podem levar a penalidades previstas no Código Penal e na Lei nº 9.605/1998.
+Resumo das sanções:
+
+Sanções penais e administrativas por informações falsas, omissas ou por ausência de inscrição.
+Suspensão ou cancelamento da inscrição no CAR pelo órgão ambiental.
+Impedimentos para acesso a créditos agrícolas e regularização ambiental.
+Possibilidade de multas e outras penalidades legais.","0,8594","0,042","0,6959",fraco,1,1,0,0,0,1,,,,
+"O que acontece se existirem divergências de tamanho de área entre a existente em documentos e a delimitada no Módulo de Cadastro?
+","Se a área informada na aba “Documentação” do Módulo de Cadastro do SICAR for diferente daquela vetorizada na aba “Geo”, o sistema sinalizará a existência de divergência. Caso os valores ultrapassem os percentuais de tolerância do SICAR, o sistema não permitirá a finalização do preenchimento da declaração e a geração do arquivo “.car”. Caso os valores estejam abaixo dos percentuais de tolerância, o sistema permitirá a finalização do preenchimento, porém, durante a análise, os técnicos dos órgãos estaduais competentes poderão notificar o proprietário/possuidor a retificar as informações pertinentes ou apresentar documentação comprobatória.
+
+A regra e a tolerância utilizada pelo Módulo de Cadastro do SICAR para Imóveis rurais até 4 módulos fiscais são:
+
+Não é gerado o arquivo “.car” se a vetorização for divergente 100% da área declarada em documento. Para isso o sistema faz duas checagens:
+Não gera “.car” se a vetorização é maior ou igual ao dobro da área declarada. Ex: Área total em Documento = 50ha e Vetorização = 100ha
+Não gera “.car” se a declaração em documento maior ou igual ao dobro da área vetorizada. Ex: Área total em Documento = 100ha e Vetorização = 50ha
+A regra e a tolerância utilizadas pelo Módulo de Cadastro do SICAR para Imóveis rurais acima de 4 módulos fiscais são:
+
+Não é gerado “.car” se a vetorização for divergente 50% da área declarada em documento. Para isso o sistema faz duas checagens:
+Não gera o arquivo “.car” se a vetorização for maior ou igual 1,5 vezes que a área declarada. Ex: Área total em Documento = 100ha e Vetorização = 150ha
+Não gera “.car” se a declaração for maior ou igual 1,5 vezes maior que a área vetorizada. Ex: Área total em Documento = 150ha e Vetorização = 100ha
+Para os casos em que a área da propriedade/posse vetorizada seja maior que área constante em documentação, superando os limites de tolerância e impossibilitando a finalização do preenchimento do cadastro, o usuário deve declarar a área vetorizada excedente na etapa documentação como posse por meio do Termo de Autodeclaração.
+
+","Se houver divergência entre a área do imóvel rural declarada que consta no documento de propriedade e a área obtida pela delimitação do perímetro do imóvel rural no aplicativo de georreferenciamento do sistema CAR, essa diferença será verificada durante a análise dos dados declarados no CAR pelo órgão competente.
+
+Essa verificação faz parte dos aspectos mínimos que o SICAR (Sistema de Cadastro Ambiental Rural) deve analisar automaticamente, conforme o Art. 43 do documento.
+
+Portanto, a divergência será identificada e poderá gerar a necessidade de retificação, complementação ou comprovação das informações declaradas pelo proprietário ou possuidor rural, conforme demanda o órgão responsável.","0,8115","0,0382","0,6568",fraco,1,1,0,0,0,1,,,,
+Por que na aba “Geo” do Módulo de Cadastro as imagens somem ao aumentar o zoom?,"As imagens somem ao aumentar o zoom quando a transferência não ocorre por completo, embora, algumas vezes, seja exibida mensagem informando que o município foi baixado com sucesso. Caso esta situação ocorra é necessário proceder novamente o download das imagens em “Baixar Imagens”, no Módulo de Cadastro, até que deixem de desaparecer ao aumentar o zoom no local de interesse. Para baixar por completo as imagens, no Módulo de Cadastro, é importante um acesso de qualidade à internet.",não tenho informações sobre isso.,"0,2839","0,0888","0,2448",ruim,0,0,0,0,0,0,,,,

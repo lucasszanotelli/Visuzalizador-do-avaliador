@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 from difflib import SequenceMatcher
 
 import pandas as pd
@@ -11,7 +12,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 # CONFIGURACOES
 # =========================================================
 
-ARQUIVO_CSV = "semRAG4.1mini.csv"
+BASE_DIR = Path(__file__).resolve().parent
+ARQUIVO_CSV = (
+    BASE_DIR.parent
+    / "comparacao-respostas"
+    / "Comparação das respostas - RESPOSTA SEM RAG (CHATGPT 4.1-MINI).csv"
+)
 
 # Coluna com o rotulo real:
 # 0 = verdadeiro
@@ -316,19 +322,19 @@ if __name__ == "__main__":
     print(melhor_threshold)
 
     df_metricas.to_csv(
-        "metricas_por_threshold.csv",
+        "metricas_por_threshold4.1CR.csv",
         index=False,
         sep=";",
         decimal="," 
     )
 
     df_predicoes.to_csv(
-        "predicoes_por_threshold.csv",
+        "predicoes_por_threshold4.1CR.csv",
         index=False,
         sep=";",
         decimal="," 
     )
 
     print("\nArquivos gerados:")
-    print("- metricas_por_threshold.csv")
-    print("- predicoes_por_threshold.csv")
+    print("- metricas_por_threshold4.1CR.csv")
+    print("- predicoes_por_threshold4.1CR.csv")
