@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Como Funciona a Avaliacao</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #07101e;
+            --bg-soft: #111c33;
+            --panel: rgba(10, 18, 34, 0.88);
+            --text: #eaf1ff;
+            --muted: #9aa6c1;
+            --accent: #f7b267;
+            --accent-2: #74c69d;
+            --line: rgba(148, 163, 184, 0.16);
+            --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+            --radius: 22px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Space Grotesk", system-ui, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 12% 12%, rgba(116, 198, 157, 0.18), transparent 32%),
+                radial-gradient(circle at 88% 6%, rgba(247, 178, 103, 0.2), transparent 30%),
+                linear-gradient(160deg, var(--bg), var(--bg-soft));
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 36px 36px;
+            pointer-events: none;
+            opacity: 0.35;
+            z-index: 0;
+        }
+
+        .page {
+            width: min(1200px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 32px 0 64px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(12, 22, 39, 0.95), rgba(18, 30, 55, 0.88));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 36px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            animation: rise 0.7s ease both;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: auto -130px -150px auto;
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, rgba(247, 178, 103, 0.3), transparent 65%);
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(116, 198, 157, 0.12);
+            color: #b9f6d3;
+            border: 1px solid rgba(116, 198, 157, 0.18);
+            font-size: 0.88rem;
+            letter-spacing: 0.02em;
+        }
+
+        h1 {
+            font-family: "Fraunces", Georgia, serif;
+            font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+            line-height: 1.05;
+            margin: 18px 0 12px;
+            max-width: 14ch;
+        }
+
+        .subtitle {
+            margin: 0;
+            max-width: 75ch;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.65;
+        }
+
+        .hero-actions {
+            margin-top: 18px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(247, 178, 103, 0.35);
+            background: linear-gradient(120deg, rgba(116, 198, 157, 0.92), rgba(247, 178, 103, 0.92));
+            color: #08111f;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 14px 30px rgba(12, 22, 39, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 20px 40px rgba(12, 22, 39, 0.45);
+            filter: brightness(1.02);
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid rgba(247, 178, 103, 0.9);
+            outline-offset: 3px;
+        }
+
+        .section {
+            margin-top: 26px;
+            animation: rise 0.7s ease both;
+        }
+
+        .section:nth-of-type(2) {
+            animation-delay: 0.05s;
+        }
+
+        .section:nth-of-type(3) {
+            animation-delay: 0.1s;
+        }
+
+        .section:nth-of-type(4) {
+            animation-delay: 0.15s;
+        }
+
+        .section:nth-of-type(5) {
+            animation-delay: 0.2s;
+        }
+
+        .section:nth-of-type(6) {
+            animation-delay: 0.25s;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 16px;
+            margin: 0 0 14px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 1.35rem;
+        }
+
+        .section-title p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .panel p {
+            margin: 0 0 12px;
+            color: var(--text);
+        }
+
+        .panel p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .card {
+            background: rgba(7, 14, 26, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            border-radius: 18px;
+            padding: 16px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+        }
+
+        .card p {
+            margin: 0 0 8px;
+            color: var(--muted);
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-list {
+            margin: 12px 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 6px;
+            color: var(--muted);
+        }
+
+        .inline-list li strong {
+            color: var(--text);
+        }
+
+        .callout {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(116, 198, 157, 0.12);
+            border: 1px solid rgba(116, 198, 157, 0.2);
+        }
+
+        .formula {
+            display: block;
+            margin: 10px 0 0;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: rgba(7, 14, 26, 0.75);
+            color: #e3f0ff;
+            font-family: "Space Grotesk", system-ui, sans-serif;
+            font-size: 0.96rem;
+        }
+
+        .definition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .definition-card {
+            background: rgba(9, 16, 30, 0.7);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            padding: 14px;
+        }
+
+        .definition-card h3 {
+            margin: 0 0 8px;
+            font-size: 1rem;
+        }
+
+        .definition-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .metric {
+            background: rgba(9, 16, 30, 0.72);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            padding: 16px;
+        }
+
+        .metric h3 {
+            margin: 0 0 8px;
+            font-size: 1.02rem;
+        }
+
+        .metric p {
+            margin: 0 0 8px;
+            color: var(--muted);
+        }
+
+        .metric p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 0.86rem;
+            text-align: right;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .page {
+                width: min(100% - 18px, 1200px);
+                padding-top: 18px;
+            }
+
+            .hero {
+                padding: 24px;
+                border-radius: 22px;
+            }
+
+            h1 {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <section class="hero">
+            <div class="eyebrow">Guia de avaliacao automatica</div>
+            <h1>Avaliacao das respostas do chatbot</h1>
+            <p class="subtitle">
+                Para iniciar a avaliacao das respostas geradas por um chatbot, foi necessario construir
+                uma base de perguntas e respostas consideradas ideais, que serviram como referencia
+                para comparacao. Para isso, utilizamos como base o FAQ disponivel no site oficial do
+                CAR, no endereco https://www.car.gov.br/#/suporte.
+            </p>
+            <div class="hero-actions">
+                <a class="btn" href="comparacao_metricas_avaliadores.html">Ver comparacao de metricas <span
+                        aria-hidden="true">-></span></a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>Base de referencia e gabarito humano</h2>
+                <p>Classificacao inicial antes das metricas.</p>
+            </div>
+            <div class="panel">
+                <p>
+                    Antes da aplicacao das metricas automaticas, cada resposta gerada pelo chatbot foi
+                    analisada manualmente por uma pessoa. Essa avaliacao humana serviu como gabarito da
+                    comparacao, classificando cada resposta como:
+                </p>
+                <ul class="inline-list">
+                    <li><strong>1:</strong> resposta correta;</li>
+                    <li><strong>0:</strong> resposta incorreta.</li>
+                </ul>
+                <p>
+                    Essa etapa foi importante porque permitiu definir uma referencia confiavel para
+                    avaliar se os resultados calculados automaticamente pelo script estavam coerentes
+                    com a interpretacao humana.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>Como foi feita a avaliacao automatica?</h2>
+                <p>Comparacao entre respostas do FAQ e do chatbot.</p>
+            </div>
+            <div class="panel">
+                <p>
+                    As mesmas perguntas presentes na base do FAQ foram enviadas para a IA do chatbot.
+                    Em seguida, as respostas geradas pelo chatbot foram comparadas com as respostas
+                    oficiais da FAQ por meio de um script desenvolvido em Python. Esse script calcula
+                    valores entre 0 e 1 para dois criterios principais.
+                </p>
+                <div class="card-grid">
+                    <article class="card">
+                        <h3>Criterio lexical</h3>
+                        <p>
+                            Avalia o quanto a resposta do chatbot utiliza palavras semelhantes ou iguais
+                            as da resposta considerada ideal. Esse criterio e importante porque, em alguns
+                            casos, determinadas palavras-chave sao essenciais para que a resposta seja
+                            considerada adequada.
+                        </p>
+                        <p>
+                            Por exemplo, na pergunta &ldquo;O que e CAR?&rdquo;, espera-se que a resposta mencione
+                            termos como &ldquo;Cadastro&rdquo;, &ldquo;Ambiental&rdquo; e &ldquo;Rural&rdquo;.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Criterio semantico</h3>
+                        <p>
+                            Avalia o sentido da resposta, ou seja, se a resposta do chatbot transmite a
+                            mesma ideia da resposta oficial, mesmo utilizando palavras diferentes.
+                        </p>
+                        <p>
+                            Esse criterio possui maior peso, pois uma resposta pode estar correta mesmo
+                            sem repetir exatamente os mesmos termos da FAQ.
+                        </p>
+                    </article>
+                </div>
+                <div class="callout">
+                    <p>
+                        Para calcular a nota final, foram atribuidos pesos diferentes para cada criterio:
+                        80% para o criterio semantico e 20% para o criterio lexical.
+                    </p>
+                    <code class="formula">score_final = (score_semantico * 0.8) + (score_lexical * 0.2)</code>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>Thresholds</h2>
+                <p>Definicao de limites para classificar respostas.</p>
+            </div>
+            <div class="panel">
+                <p>
+                    Apos calcular o score final de cada resposta, surge uma questao importante: a partir
+                    de qual nota uma resposta pode ser considerada correta ou incorreta? Para isso, foram
+                    definidos os thresholds, que sao valores de corte utilizados para classificar as
+                    respostas. Um threshold define o limite minimo necessario para que uma resposta seja
+                    considerada correta. Respostas com score igual ou superior ao threshold sao
+                    classificadas como corretas, enquanto respostas com score inferior sao classificadas
+                    como incorretas.
+                </p>
+                <div class="card-grid">
+                    <article class="card">
+                        <h3>Exemplo com score 0,65</h3>
+                        <ul class="inline-list">
+                            <li>considerada correta com threshold 0,60;</li>
+                            <li>considerada incorreta com threshold 0,70.</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>Analise por intervalo</h3>
+                        <p>
+                            Esse processo foi repetido para diferentes valores de threshold, permitindo
+                            analisar o comportamento das metricas de avaliacao em cada intervalo. Dessa
+                            forma, torna-se possivel identificar qual valor de threshold apresenta o
+                            melhor equilibrio entre respostas corretas e incorretas.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>Metricas de avaliacao</h2>
+                <p>Accuracy, precision, recall e F1-score.</p>
+            </div>
+            <div class="panel">
+                <p>
+                    Para avaliar o desempenho do chatbot em cada threshold, foram utilizadas metricas
+                    classicas de classificacao. Antes de explicar cada metrica, e importante entender
+                    quatro conceitos principais.
+                </p>
+                <div class="definition-grid">
+                    <div class="definition-card">
+                        <h3>VP — Verdadeiro Positivo</h3>
+                        <p>A resposta era correta e o sistema classificou como correta.</p>
+                    </div>
+                    <div class="definition-card">
+                        <h3>VN — Verdadeiro Negativo</h3>
+                        <p>A resposta era incorreta e o sistema classificou como incorreta.</p>
+                    </div>
+                    <div class="definition-card">
+                        <h3>FP — Falso Positivo</h3>
+                        <p>A resposta era incorreta, mas o sistema classificou como correta.</p>
+                    </div>
+                    <div class="definition-card">
+                        <h3>FN — Falso Negativo</h3>
+                        <p>A resposta era correta, mas o sistema classificou como incorreta.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>Formulas e interpretacao</h2>
+                <p>Como cada metrica e calculada.</p>
+            </div>
+            <div class="panel">
+                <div class="metric-grid">
+                    <article class="metric">
+                        <h3>Accuracy</h3>
+                        <p>
+                            Mede a proporcao total de classificacoes corretas feitas pelo sistema. Ela
+                            considera tanto as respostas corretas classificadas corretamente quanto as
+                            respostas incorretas classificadas corretamente. Em outras palavras, a
+                            acuracia mostra o percentual geral de acertos do modelo.
+                        </p>
+                        <code class="formula">accuracy = (VP + VN) / (VP + VN + FP + FN)</code>
+                    </article>
+                    <article class="metric">
+                        <h3>Precision</h3>
+                        <p>
+                            Mede quantas das respostas classificadas como corretas realmente estavam
+                            corretas. Essa metrica e importante para verificar se o sistema esta sendo
+                            muito permissivo, ou seja, se esta classificando muitas respostas erradas como
+                            corretas. Quanto maior a precisao, menor a quantidade de respostas incorretas
+                            sendo aceitas como corretas.
+                        </p>
+                        <code class="formula">precision = VP / (VP + FP)</code>
+                    </article>
+                    <article class="metric">
+                        <h3>Recall</h3>
+                        <p>
+                            Mede quantas das respostas que realmente estavam corretas foram identificadas
+                            corretamente pelo sistema. Quanto maior o recall, menor a quantidade de
+                            respostas corretas sendo classificadas como incorretas.
+                        </p>
+                        <code class="formula">recall = VP / (VP + FN)</code>
+                    </article>
+                    <article class="metric">
+                        <h3>F1-score</h3>
+                        <p>
+                            Combina precision e recall em um unico valor. Ele e especialmente util quando
+                            queremos encontrar um equilibrio entre aceitar respostas corretas e evitar
+                            aceitar respostas incorretas. O F1-score e mais indicado quando existe um
+                            desequilibrio entre respostas corretas e incorretas na base de avaliacao, pois
+                            ele penaliza situacoes em que a precision ou o recall estao muito baixos.
+                        </p>
+                        <code class="formula">f1 = 2 * (precision * recall) / (precision + recall)</code>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>Consideracoes finais</h2>
+                <p>Equilibrio entre thresholds e metricas.</p>
+            </div>
+            <div class="panel">
+                <p>
+                    Com esse processo, e possivel comparar a avaliacao automatica do chatbot com a
+                    avaliacao humana, observando como cada threshold influencia as metricas de
+                    desempenho. Assim, a escolha do melhor threshold nao depende apenas do score final,
+                    mas tambem do equilibrio entre as metricas. Um threshold muito baixo pode aceitar
+                    respostas incompletas ou incorretas, enquanto um threshold muito alto pode rejeitar
+                    respostas que estao semanticamente corretas, mas escritas de forma diferente da FAQ.
+                </p>
+                <p>
+                    Portanto, a analise dos thresholds permite definir um criterio mais confiavel para
+                    avaliar a qualidade das respostas geradas pelo chatbot.
+                </p>
+            </div>
+        </section>
+
+        <div class="footer">Pagina de referencia para a avaliacao automatica.</div>
+    </main>
+</body>
+
+</html>
